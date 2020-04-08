@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include ".helm.fullname" . }}
+  labels:
+    app: {{ include ".helm.fullname" . }}
+data:
+  config.yaml: |
+    defaultFallbackTarget: {{ .Values.redirect.defaultFallbackTarget }}
+    buildin:
+      wwwToNonWww: {{ if eq .Values.redirect.buildin "wwwToNonWww" -}}true{{- else -}}false{{- end }}
+      nonWwwToWww: {{ if eq .Values.redirect.buildin "nonWwwToWww" -}}true{{- else -}}false{{- end }}
+    {{ if .Values.redirect.hosts -}}hosts:
+      {{- toYaml .Values.redirect.hosts | nindent 6 }}{{- end }}

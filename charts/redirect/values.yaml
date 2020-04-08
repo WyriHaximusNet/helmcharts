@@ -1,0 +1,79 @@
+# Default values for .helm.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# Redirect Application Configuration
+redirect:
+# The default fallback is use in case the application can't find a domain to redirect to within the other configuration options
+  defaultFallbackTarget: https://wyrihaximus.net/
+  buildin: nonWwwToWww
+  hosts: {}
+# For example we're redirect the real name domain, to the nickname domain here. This is useful for migrations to new hostnames
+#    www.ceesjankiewiet.nl: wyrihaximus.net
+  ingressHosts: []
+# For example we're could be redirecting from wyrihaximus.net to www.wyrihaximus.net so we need the wyrihaximus.net ingress host defined here
+#    - wyrihaximus.net
+    
+replicaCount: 2
+
+image:
+  repository: wyrihaximusnet/redirect
+  tag: random
+  pullPolicy: Always
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name:
+
+labels:
+  language: random
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 7132
+  metricsPort: 7133
+
+ingress:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+
+resources:
+  # Setting this pretty low since this is a low resource intensive application, increase when needed
+  limits:
+    cpu: 50m
+    memory: 16Mi
+  requests:
+    cpu: 10m
+    memory: 16Mi
+
+nodeSelector: {} ## WE should set this to always run on two different nodes
+
+tolerations: []
+
+affinity:
+  podAntiAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+    - weight: 100
+      podAffinityTerm:
+        labelSelector:
+          matchExpressions:
+            - key: app
+              operator: In
+              values:
+                - redirect
+        topologyKey: "kubernetes.io/hostname"
