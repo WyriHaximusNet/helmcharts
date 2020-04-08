@@ -4,16 +4,15 @@
 
 # Redirect Application Configuration
 # Detailed description of all options: https://github.com/wyrihaximusnet/docker-redirect#configuration
+# All options has been filled out as an example with two of my own domains
 redirect:
 # The default fallback is use in case the application can't find a domain to redirect to within the other configuration options
-  defaultFallbackTarget: https://wyrihaximus.net/
-  buildin: nonWwwToWww
-  hosts: {}
-# For example we're redirect the real name domain, to the nickname domain here. This is useful for migrations to new hostnames
-#    www.ceesjankiewiet.nl: wyrihaximus.net
-  ingressHosts: []
-# For example we're could be redirecting from wyrihaximus.net to www.wyrihaximus.net so we need the wyrihaximus.net ingress host defined here
-#    - wyrihaximus.net
+  defaultFallbackTarget: https://www.wyrihaximus.net/
+  buildin: wwwToNonWww
+  hosts:
+    www.ceesjankiewiet.nl: wyrihaximus.net
+  ingressHosts:
+    - www.wyrihaximus.net
 
 replicaCount: 2
 
@@ -58,10 +57,10 @@ resources:
   # Setting this pretty low since this is a low resource intensive application, increase when needed
   limits:
     cpu: 50m
-    memory: 16Mi
+    memory: 32Mi
   requests:
-    cpu: 10m
-    memory: 16Mi
+    cpu: 50m
+    memory: 32Mi
 
 ## WE should set this to always run on two different nodes
 nodeSelector: {}
