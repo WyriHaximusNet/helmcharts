@@ -52,12 +52,12 @@ spec:
               path: /ping
               port: http-metrics
           volumeMounts:
-            - name: {{ include ".helm.fullname" . }}-configmap-volume
+            - name: {{ include ".helm.fullname" . }}-volume
               mountPath: /etc/redirect/
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
-        - name: {{ include ".helm.fullname" . }}-configmap-volume
+        - name: {{ include ".helm.fullname" . }}-volume
           configMap:
             name: {{ include ".helm.fullname" . }}
       {{- with .Values.nodeSelector }}
