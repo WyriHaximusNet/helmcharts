@@ -3,6 +3,7 @@
 # Declare variables to be passed into your templates.
 
 # Redirect Application Configuration
+# Detailed description of all options: https://github.com/wyrihaximusnet/docker-redirect#configuration
 redirect:
 # The default fallback is use in case the application can't find a domain to redirect to within the other configuration options
   defaultFallbackTarget: https://wyrihaximus.net/
@@ -13,9 +14,10 @@ redirect:
   ingressHosts: []
 # For example we're could be redirecting from wyrihaximus.net to www.wyrihaximus.net so we need the wyrihaximus.net ingress host defined here
 #    - wyrihaximus.net
-    
+
 replicaCount: 2
 
+# Available tags: https://github.com/wyrihaximusnet/docker-redirect#provided-tags
 image:
   repository: wyrihaximusnet/redirect
   tag: random
@@ -61,7 +63,8 @@ resources:
     cpu: 10m
     memory: 16Mi
 
-nodeSelector: {} ## WE should set this to always run on two different nodes
+## WE should set this to always run on two different nodes
+nodeSelector: {}
 
 tolerations: []
 
