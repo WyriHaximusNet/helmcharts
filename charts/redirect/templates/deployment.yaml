@@ -16,7 +16,7 @@ spec:
     metadata:
       annotations:
         prometheus.io/scrape: "true"
-        prometheus.io/port: {{ .Values.service.metricsPort | quote}}
+        prometheus.io/port: "7133"
       labels:
         app: {{ include ".helm.fullname" . }}
         release: {{ include ".helm.fullname" . }}
@@ -38,10 +38,10 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: {{ .Values.service.port }}
+              containerPort: 7132
               protocol: TCP
             - name: http-metrics
-              containerPort: {{ .Values.service.metricsPort }}
+              containerPort: 7133
               protocol: TCP
           livenessProbe:
             httpGet:

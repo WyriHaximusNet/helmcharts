@@ -1,3 +1,4 @@
+{{- if .Values.grafana.influxdb -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -193,3 +194,4 @@ data:
       "uid": "Tcemi9yZz",
       "version": 1
     }
+{{ end }}
