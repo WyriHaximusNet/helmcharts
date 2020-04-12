@@ -1,5 +1,4 @@
 {{- $fullName := include ".helm.fullname" . -}}
-{{- $svcPort := .Values.service.port -}}
 {{- $hosts := .Values.redirect.hosts -}}
 {{- $ingressHosts := .Values.redirect.ingressHosts -}}
 apiVersion: networking.k8s.io/v1beta1
@@ -31,14 +30,14 @@ spec:
   rules:
   {{- if $hosts -}}
     {{- range $hostFrom, $hostTo := $hosts }}
-      {{- $host := dict "Host" $hostFrom "FullName" $fullName "SvcPort" $svcPort -}}
+      {{- $host := dict "Host" $hostFrom "FullName" $fullName "SvcPort" 7132 -}}
       {{ include ".helm.hostRule" $host | nindent 4 }}
     {{- end }}
   {{- end }}
   {{- if $ingressHosts -}}
     {{- range $host := $ingressHosts }}
       {{- if eq (hasKey $hosts $host) false -}}
-        {{- $host := dict "Host" $host "FullName" $fullName "SvcPort" $svcPort -}}
+        {{- $host := dict "Host" $host "FullName" $fullName "SvcPort" 7132 -}}
         {{ include ".helm.hostRule" $host | nindent 4 }}
       {{- end }}
     {{- end }}
