@@ -11,14 +11,14 @@ jobs:
 
       - name: Fetch history
         run: git fetch --prune --unshallow
-
+      - run: |
+          echo -e " \"postgresql://postgres:postgres@postgres/postgres\"" >> charts/commento/ci/postgresql-values.yaml
       - name: Lint charts
         id: lint
         uses: helm/chart-testing-action@v1.1.0
         with:
           command: lint
           config: ct.yaml
-
 
   test:
     runs-on: ubuntu-latest
@@ -33,17 +33,31 @@ jobs:
       - name: Create kind cluster
         uses: helm/kind-action@v1.0.0
         with:
-          installLocalPathProvisioner: true
-        # Only build a kind cluster if there are chart changes to test.
+          installLocalPathProvisioner: true # Only build a kind cluster if there are chart changes to test.
 
+      - name: Install postgresql
+        uses: evryfs/helm-ephemeral-action@v0.1
+        with:
+          repo: https://charts.bitnami.com/bitnami
+          chart: postgresql
+          helm: 'helm' # optional, default value is 'helm'
+          args: '--wait --timeout 2m' #optional, default value is '--wait --timeout 2m' in order to wait for the chart-install to stabilize into ready state
+      - name: Get PG passowrd
+        id: postgresql_passowrd
+        run: |
+          echo ::set-output name=password::$(echo "$(kubectl get secret --namespace default postgresql-helm-charts-${{ github.run_number }} -o jsonpath="{.data.postgresql-password}" | base64 --decode)")
+      - name: Create postgresql URL
+        id: postgresql
+        run: |
+          echo ::set-output name=url::$(echo "postgresql://postgres:${{ steps.postgresql_passowrd.outputs.password }}@postgresql-helm-charts-${{ github.run_number }}.default/postgres")
       - name: Prepare library charts
         run: |
           cp charts/cron-jobs/library-ci/*.yaml charts/cron-jobs/templates/
           cp charts/horizontal-pod-autoscalers/library-ci/*.yaml charts/horizontal-pod-autoscalers/templates/
           cp charts/pi-hole-exporter/library-ci/*.yaml charts/pi-hole-exporter/templates/
+          echo -e " \"${{ steps.postgresql.outputs.url }}\"" >> charts/commento/ci/postgresql-values.yaml
           sed -i 's/library/application/g' charts/cron-jobs/Chart.yaml
           sed -i 's/library/application/g' charts/horizontal-pod-autoscalers/Chart.yaml
-
       - name: Test charts
         uses: helm/chart-testing-action@v1.0.0
         with:

@@ -1,0 +1,8 @@
+Congratulations you can now reach you Commento installation at: https://{{ $.Values.ingress.host }}
+
+{{- if eq (.Values.application.forbidNewOwners) false }}
+It looks like you've set forbidNewOwners to "false". If you intend for anyone to sign up and add sites to your installations that is fine, but.
+If you don't want anyone to be able to sign up and add sites, it is recommended to set forbidNewOwners to "true".
+{{- end }}
+
+For detail information how to configure Commento, visit: https://docs.commento.io/

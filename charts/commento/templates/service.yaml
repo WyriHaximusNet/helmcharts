@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "commento.fullname" . }}
+  labels:
+    app: {{ template "commento.name" . }}
+    chart: {{ template "commento.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8967
+      targetPort: 8967
+      protocol: TCP
+      name: commento
+  selector:
+    app: {{ template "commento.name" . }}
+    release: {{ .Release.Name }}
