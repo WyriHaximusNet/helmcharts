@@ -15,7 +15,7 @@ spec:
     metadata:
       annotations:
         prometheus.io/scrape: "true"
-        prometheus.io/port: {{ .Values.service.port | quote}}
+        prometheus.io/port: "9170"
       labels:
         app: {{ include ".helm.fullname" . }}
         release: {{ include ".helm.fullname" . }}
@@ -31,8 +31,8 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: metrics
-              containerPort: {{ .Values.service.port }}
+              containerPort: 9170
               protocol: TCP
           args:
-            - -listen-address=:{{ .Values.service.port }}
+            - -listen-address=:9170
             - -organisations={{ .Values.organisations }}

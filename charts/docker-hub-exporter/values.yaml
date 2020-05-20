@@ -8,6 +8,3 @@ organisations: YOUR_USER_OR_ORG
 grafana:
   influxdb: false
   prometheus: false
-
-service:
-  port: 9170
