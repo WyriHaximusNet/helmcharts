@@ -1,0 +1,13 @@
+image:
+  repository: jessestuart/docker-hub-exporter
+  tag: d05df48
+  pullPolicy: IfNotPresent
+
+organisations: YOUR_USER_OR_ORG
+
+grafana:
+  influxdb: false
+  prometheus: false
+
+service:
+  port: 9170
