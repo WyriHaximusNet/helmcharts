@@ -33,6 +33,16 @@ spec:
             - name: metrics
               containerPort: 9170
               protocol: TCP
+          livenessProbe:
+            initialDelaySeconds: 5
+            httpGet:
+              path: /
+              port: metrics
+          readinessProbe:
+            initialDelaySeconds: 5
+            httpGet:
+              path: /
+              port: metrics
           args:
             - -listen-address=:9170
             - -organisations={{ .Values.organisations }}
