@@ -75,7 +75,7 @@ data:
           "hide": false,
           "instant": false,
           "interval": "",
-          "legendFormat": "\{\{image}} (\{\{user\}\})",
+          "legendFormat": "{{"{{"}}image{{"}}"}} ({{"{{"}}user{{"}}"}})",
           "refId": "A"
         }
         ],
@@ -271,7 +271,7 @@ data:
         {
           "expr": "sum(docker_hub_image_stars_gauge{user=~\"$user\"}) by (image, user)",
           "interval": "",
-          "legendFormat": "\{\{image}} (\{\{user\}\})",
+          "legendFormat": "{{"{{"}}image{{"}}"}} ({{"{{"}}user{{"}}"}})",
           "refId": "A"
         }
         ],
