@@ -15,24 +15,30 @@ spec:
     metadata:
       annotations:
         prometheus.io/scrape: "true"
-        prometheus.io/port: {{ .Values.service.port | quote}}
+        prometheus.io/port: "9170"
       labels:
         app: {{ include ".helm.fullname" . }}
         release: {{ include ".helm.fullname" . }}
         {{- include ".helm.selectorLabels" . | nindent 8 }}
     spec:
-      {{- with .Values.imagePullSecrets }}
-      imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
       containers:
         - name: docker-hub-exporter
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: metrics
-              containerPort: {{ .Values.service.port }}
+              containerPort: 9170
               protocol: TCP
+          livenessProbe:
+            initialDelaySeconds: 5
+            httpGet:
+              path: /
+              port: metrics
+          readinessProbe:
+            initialDelaySeconds: 5
+            httpGet:
+              path: /
+              port: metrics
           args:
-            - -listen-address=:{{ .Values.service.port }}
+            - -listen-address=:9170
             - -organisations={{ .Values.organisations }}
