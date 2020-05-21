@@ -8,3 +8,12 @@ organisations: YOUR_USER_OR_ORG
 grafana:
   influxdb: false
   prometheus: false
+
+resources:
+  # Setting this pretty low since this is a low resource intensive application, increase when needed
+  limits:
+    cpu: 5m
+    memory: 31Mi
+  requests:
+    cpu: 5m
+    memory: 31Mi
