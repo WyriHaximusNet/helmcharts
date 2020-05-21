@@ -21,10 +21,6 @@ spec:
         release: {{ include ".helm.fullname" . }}
         {{- include ".helm.selectorLabels" . | nindent 8 }}
     spec:
-      {{- with .Values.imagePullSecrets }}
-      imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
       containers:
         - name: docker-hub-exporter
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
