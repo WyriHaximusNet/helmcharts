@@ -66,3 +66,13 @@ spec:
         - name: {{ include ".helm.fullname" . }}-volume
           configMap:
             name: {{ include ".helm.fullname" . }}
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - {{ include ".helm.fullname" . }}
+            topologyKey: "kubernetes.io/hostname"
