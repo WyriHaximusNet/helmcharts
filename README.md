@@ -7,3 +7,7 @@ Opinionated helm chats for my personal projects, and OSS Projects that either do
 * [`docker-hub-exporter`](https://hub.helm.sh/charts/wyrihaximusnet/docker-hub-exporter)
 * [`redirect`](https://hub.helm.sh/charts/wyrihaximusnet/redirect)
 
+
+## Opinionated decisions shared by all charts
+
+* All have pod anti-affinity to be not be on the same node

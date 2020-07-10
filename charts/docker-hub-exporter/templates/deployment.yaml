@@ -54,3 +54,13 @@ spec:
           args:
             - -listen-address=:9170
             - -organisations={{ .Values.organisations }}
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - {{ include ".helm.fullname" . }}
+            topologyKey: "kubernetes.io/hostname"
