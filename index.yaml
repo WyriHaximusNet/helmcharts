@@ -109,6 +109,21 @@ entries:
   redirect:
   - apiVersion: v2
     appVersion: random
+    created: "2020-07-10T19:59:37.468385374Z"
+    description: Redirect Delpoyment
+    digest: b5b7e850cd605bce9b74c4ca1120efc055a69329cf8d7b27fea63800dc9dc214
+    home: https://github.com/wyrihaximusnet/docker-redirect
+    icon: https://avatars0.githubusercontent.com/u/19738034?s=200&v=4
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: redirect
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/redirect-0.4.0/redirect-0.4.0.tgz
+    version: 0.4.0
+  - apiVersion: v2
+    appVersion: random
     created: "2020-07-10T19:53:48.002653143Z"
     description: Redirect Delpoyment
     digest: 7cff3c7a04f7f655c7acf38891a5865dc73b163611f2f158d5218bc663829193
