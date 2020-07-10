@@ -17,7 +17,7 @@ redirect:
 grafana:
   influxdb: false
 
-replicaCount: 2
+replicas: 2
 
 # Available tags: https://github.com/wyrihaximusnet/docker-redirect#provided-tags
 image:
