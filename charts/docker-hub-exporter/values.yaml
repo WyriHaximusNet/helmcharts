@@ -9,6 +9,8 @@ grafana:
   influxdb: false
   prometheus: false
 
+replicas: 1
+
 resources:
   # Setting this pretty low since this is a low resource intensive application, increase when needed
   limits:
