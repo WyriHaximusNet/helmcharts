@@ -62,10 +62,3 @@ resources:
   requests:
     cpu: 50m
     memory: 32Mi
-
-## WE should set this to always run on two different nodes
-nodeSelector: {}
-
-tolerations: []
-
-affinity: {}
