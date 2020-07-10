@@ -51,6 +51,12 @@ spec:
             httpGet:
               path: /ping
               port: http-metrics
+          startupProbe:
+            failureThreshold: 33
+            periodSeconds: 1
+            httpGet:
+              path: /ping
+              port: http-metrics
           volumeMounts:
             - name: {{ include ".helm.fullname" . }}-volume
               mountPath: /etc/redirect/
