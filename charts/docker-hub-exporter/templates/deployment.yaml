@@ -30,12 +30,16 @@ spec:
               containerPort: 9170
               protocol: TCP
           livenessProbe:
-            initialDelaySeconds: 5
             httpGet:
               path: /
               port: metrics
           readinessProbe:
-            initialDelaySeconds: 5
+            httpGet:
+              path: /
+              port: metrics
+          startupProbe:
+            failureThreshold: 33
+            periodSeconds: 1
             httpGet:
               path: /
               port: metrics
