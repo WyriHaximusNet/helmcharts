@@ -3,6 +3,21 @@ entries:
   docker-hub-exporter:
   - apiVersion: v2
     appVersion: d05df48
+    created: "2020-07-10T20:22:37.105104618Z"
+    description: Docker Hub exporter
+    digest: 6f2779dac921749acd36e681d23cd8b1f456ad5e805d5c2b364a45651a6271fa
+    home: https://github.com/jessestuart/docker-hub-exporter
+    icon: https://helm.wyrihaximus.net/images/charts/docker-hub-exporter.png
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: docker-hub-exporter
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/docker-hub-exporter-0.4.0/docker-hub-exporter-0.4.0.tgz
+    version: 0.4.0
+  - apiVersion: v2
+    appVersion: d05df48
     created: "2020-07-10T19:53:47.91992534Z"
     description: Docker Hub exporter
     digest: 01a1227d0eea98e368dd6e4739b06cfabd8a7909e032fdee9d0cea8609f5ea60
