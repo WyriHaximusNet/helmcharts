@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "default-backend.fullname" . }}
+  labels:
+    app: {{ template "default-backend.name" . }}
+    appRevision: {{ template "default-backend.nameRevision" . }}
+    chart: {{ template "default-backend.chart" . }}
+    release: {{ .Release.Name }}
+    releaseRevision: {{ .Release.Revision | quote }}
+    heritage: {{ .Release.Service }}
+    app.kubernetes.io/component: controller
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "default-backend.name" . }}
+      release: {{ .Release.Name }}
+  replicas: {{ .Values.replicas }}
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9696"
+      labels:
+        app: {{ template "default-backend.name" . }}
+        appRevision: {{ template "default-backend.nameRevision" . }}
+        release: {{ .Release.Name }}
+        releaseRevision: {{ .Release.Revision | quote }}
+    spec:
+      containers:
+        - name: default-backend
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: default-backend
+              containerPort: 6969
+              protocol: TCP
+            - name: metrics
+              containerPort: 9696
+              protocol: TCP
+          livenessProbe:
+            failureThreshold: 6
+            httpGet:
+              path: /
+              port: metrics
+          readinessProbe:
+            failureThreshold: 6
+            httpGet:
+              path: /
+              port: metrics
+          startupProbe:
+            httpGet:
+              path: /
+              port: metrics
+            failureThreshold: 90
+            periodSeconds: 1
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: appRevision
+                operator: In
+                values:
+                - {{ template "default-backend.nameRevision" . }}
+            topologyKey: "kubernetes.io/hostname"
