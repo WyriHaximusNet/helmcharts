@@ -4,6 +4,7 @@ Opinionated helm chats for my personal projects, and OSS Projects that either do
 
 ## Charts in this repository
 
+* [`default-backend`](https://hub.helm.sh/charts/wyrihaximusnet/default-backend)
 * [`docker-hub-exporter`](https://hub.helm.sh/charts/wyrihaximusnet/docker-hub-exporter)
 * [`redirect`](https://hub.helm.sh/charts/wyrihaximusnet/redirect)
 

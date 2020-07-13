@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "default-backend.fullname" . }}
+  labels:
+    app: {{ template "default-backend.name" . }}
+    appRevision: {{ template "default-backend.nameRevision" . }}
+    chart: {{ template "default-backend.chart" . }}
+    release: {{ .Release.Name }}
+    releaseRevision: {{ .Release.Revision | quote }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: 6969
+      targetPort: default-backend
+      protocol: TCP
+      name: default-backend
+    - port: 9696
+      targetPort: metrics
+      protocol: TCP
+      name: metrics
+  selector:
+    app: {{ template "default-backend.name" . }}
+    release: {{ .Release.Name }}
