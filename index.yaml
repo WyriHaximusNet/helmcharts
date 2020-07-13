@@ -1,5 +1,21 @@
 apiVersion: v1
 entries:
+  default-backend:
+  - apiVersion: v2
+    appVersion: random
+    created: "2020-07-13T10:42:53.167272449Z"
+    description: A Helm chart for Kubernetes
+    digest: be8b98cb1a913a21940c3bf3425a0b617a53c09eec9c1c6c373cf1540f2e456a
+    home: https://github.com/wyrihaximusnet/docker-default-backend
+    icon: https://helm.wyrihaximus.net/images/charts/default-backend.png
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: default-backend
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/default-backend-0.1.0/default-backend-0.1.0.tgz
+    version: 0.1.0
   docker-hub-exporter:
   - apiVersion: v2
     appVersion: d05df48
