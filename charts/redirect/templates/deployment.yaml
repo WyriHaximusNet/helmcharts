@@ -4,7 +4,9 @@ metadata:
   name: {{ include ".helm.fullname" . }}
   labels:
     app: {{ include ".helm.fullname" . }}
+    appRevision: {{ template ".helm.nameRevision" . }}
     release: {{ include ".helm.fullname" . }}
+    releaseRevision: {{ .Release.Revision | quote }}
     {{- include ".helm.labels" . | nindent 4 }}
     {{- toYaml .Values.labels | nindent 4 }}
 spec:
@@ -74,5 +76,5 @@ spec:
               - key: app
                 operator: In
                 values:
-                - {{ include ".helm.fullname" . }}
+                - {{ template ".helm.nameRevision" . }}
             topologyKey: "kubernetes.io/hostname"

@@ -1,10 +1,10 @@
 apiVersion: v2
 name: docker-hub-exporter
-description: Docker Hub exporter
+description: Docker Hub Exporter
 home: https://github.com/jessestuart/docker-hub-exporter
 icon: https://helm.wyrihaximus.net/images/charts/docker-hub-exporter.png
 type: application
-version: 0.4.0
+version: 0.5.0
 appVersion: d05df48
 maintainers:
   - name: WyriHaximus

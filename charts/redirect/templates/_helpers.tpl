@@ -51,6 +51,10 @@ app.kubernetes.io/name: {{ include ".helm.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end -}}
 
+{{- define ".helm.nameRevision" -}}
+{{ template ".helm.name" . }}___{{ .Release.Revision }}
+{{- end -}}
+
 {{/*
 Create the name of the service account to use
 */}}
