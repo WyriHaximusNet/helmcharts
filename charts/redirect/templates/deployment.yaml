@@ -10,7 +10,7 @@ metadata:
     {{- include ".helm.labels" . | nindent 4 }}
     {{- toYaml .Values.labels | nindent 4 }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
       {{- include ".helm.selectorLabels" . | nindent 6 }}
