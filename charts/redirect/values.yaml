@@ -59,7 +59,7 @@ resources:
   # Setting this pretty low since this is a low resource intensive application, increase when needed
   limits:
     cpu: 50m
-    memory: 48Mi
+    memory: 64Mi
   requests:
     cpu: 50m
-    memory: 48Mi
+    memory: 64Mi
