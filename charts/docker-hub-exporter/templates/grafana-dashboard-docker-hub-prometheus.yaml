@@ -21,11 +21,12 @@ data:
         }
         ]
       },
+      "description": "",
       "editable": true,
       "gnetId": null,
       "graphTooltip": 0,
-      "id": 9,
-      "iteration": 1589925510054,
+      "id": 4,
+      "iteration": 1598175237978,
       "links": [],
       "panels": [
       {
@@ -33,7 +34,14 @@ data:
         "bars": false,
         "dashLength": 10,
         "dashes": false,
-        "datasource": "VictoriaMetrics",
+        "datasource": "$datasource",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {},
+            "links": []
+          },
+          "overrides": []
+        },
         "fill": 1,
         "fillGradient": 0,
         "gridPos": {
@@ -58,10 +66,8 @@ data:
         "linewidth": 1,
         "links": [],
         "nullPointMode": "connected",
-        "options": {
-          "dataLinks": []
-        },
         "percentage": false,
+        "pluginVersion": "7.1.1",
         "pointradius": 5,
         "points": false,
         "renderer": "flot",
@@ -75,7 +81,7 @@ data:
           "hide": false,
           "instant": false,
           "interval": "",
-          "legendFormat": "{{"{{"}}image{{"}}"}} ({{"{{"}}user{{"}}"}})",
+          "legendFormat": "{{image}} ({{user}})",
           "refId": "A"
         }
         ],
@@ -123,7 +129,13 @@ data:
       },
       {
         "columns": [],
-        "datasource": "VictoriaMetrics",
+        "datasource": "$datasource",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {}
+          },
+          "overrides": []
+        },
         "fontSize": "100%",
         "gridPos": {
           "h": 16,
@@ -225,14 +237,21 @@ data:
         "title": "Image last Updated At",
         "transform": "table",
         "transparent": true,
-        "type": "table"
+        "type": "table-old"
       },
       {
         "aliasColors": {},
         "bars": false,
         "dashLength": 10,
         "dashes": false,
-        "datasource": "VictoriaMetrics",
+        "datasource": "$datasource",
+        "fieldConfig": {
+          "defaults": {
+            "custom": {},
+            "links": []
+          },
+          "overrides": []
+        },
         "fill": 1,
         "fillGradient": 0,
         "gridPos": {
@@ -256,10 +275,8 @@ data:
         "linewidth": 1,
         "links": [],
         "nullPointMode": "connected",
-        "options": {
-          "dataLinks": []
-        },
         "percentage": false,
+        "pluginVersion": "7.1.1",
         "pointradius": 5,
         "points": false,
         "renderer": "flot",
@@ -271,7 +288,7 @@ data:
         {
           "expr": "sum(docker_hub_image_stars_gauge{user=~\"$user\"}) by (image, user)",
           "interval": "",
-          "legendFormat": "{{"{{"}}image{{"}}"}} ({{"{{"}}user{{"}}"}})",
+          "legendFormat": "{{image}} ({{user}})",
           "refId": "A"
         }
         ],
@@ -319,25 +336,43 @@ data:
       }
       ],
       "refresh": "15m",
-      "schemaVersion": 22,
+      "schemaVersion": 26,
       "style": "dark",
       "tags": [],
       "templating": {
         "list": [
         {
+          "current": {
+            "selected": true,
+            "text": "default",
+            "value": "default"
+          },
+          "hide": 0,
+          "includeAll": false,
+          "label": "Datasource",
+          "multi": false,
+          "name": "datasource",
+          "options": [],
+          "query": "prometheus",
+          "queryValue": "",
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "type": "datasource"
+        },
+        {
           "allValue": null,
           "current": {
-            "tags": [],
+            "selected": true,
             "text": "All",
             "value": [
               "$__all"
             ]
           },
-          "datasource": "VictoriaMetrics",
+          "datasource": "$datasource",
           "definition": "label_values(docker_hub_image_pulls_total_counter, user)",
           "hide": 0,
           "includeAll": true,
-          "index": -1,
           "label": "User",
           "multi": true,
           "name": "user",
@@ -361,7 +396,6 @@ data:
       },
       "timepicker": {
         "refresh_intervals": [
-          "5s",
           "10s",
           "30s",
           "1m",
@@ -387,9 +421,6 @@ data:
       "timezone": "",
       "title": "Docker Hub",
       "uid": "XsMetCgiz",
-      "variables": {
-        "list": []
-      },
       "version": 1
     }
 {{ end }}
