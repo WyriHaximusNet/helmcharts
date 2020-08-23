@@ -4,7 +4,7 @@ description: Redirect
 home: https://github.com/wyrihaximusnet/docker-redirect
 icon: https://helm.wyrihaximus.net/images/charts/redirect.png
 type: application
-version: 0.5.2
+version: 0.5.3
 appVersion: random
 maintainers:
   - name: WyriHaximus
