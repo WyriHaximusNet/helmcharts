@@ -1,0 +1,19 @@
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include ".helm.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ include ".helm.fullname" . }}
+    appRevision: {{ template ".helm.nameRevision" . }}
+    release: {{ include ".helm.fullname" . }}
+    releaseRevision: {{ .Release.Revision | quote }}
+    {{- include ".helm.labels" . | nindent 4 }}
+rules:
+- apiGroups: ["wyrihaximus.net"]
+  resources: ["redis-databases"]
+  verbs: ["get", "watch", "list"]
+- apiGroups: [""]
+  resources: ["secrets", "configmaps"]
+  verbs: ["create", "patch", "get"]

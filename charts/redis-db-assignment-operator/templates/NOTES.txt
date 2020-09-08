@@ -1,0 +1,26 @@
+Congratulations, you have just installed or upgraded the Redis Databases Assignment Operator!
+
+You can now get a redis database assigned on the Redis server of your picking with the following definition:
+apiVersion: wyrihaximus.net/v1
+kind: RedisDatabase
+metadata:
+  name: example
+spec:
+  secret:
+    name: example-redis-database
+  service:
+    read: redis://redis-follower.redis.svc.cluster.local:6379/
+    write: redis://redis-leader.redis.svc.cluster.local:6379/
+
+
+The operator will then create the following secret:
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: example-redis-database
+  namespace: default
+data:
+  DATABASE: BASE64_ENCODED
+  READ: BASE64_ENCODED
+  WRITE: BASE64_ENCODED

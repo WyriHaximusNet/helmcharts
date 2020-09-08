@@ -1,0 +1,13 @@
+image:
+  repository: wyrihaximusnet/kubernetes-redis-db-assignment-operator
+  tag: v1.0.0
+  pullPolicy: IfNotPresent
+
+resources:
+  # Setting this pretty low since this is a low resource intensive application, increase when needed
+  limits:
+    cpu: 250m
+    memory: 128Mi
+  requests:
+    cpu: 50m
+    memory: 128Mi
