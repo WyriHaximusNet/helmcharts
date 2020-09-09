@@ -388,4 +388,20 @@ entries:
     urls:
     - https://github.com/WyriHaximusNet/helm-charts/releases/download/redirect-0.0.2/redirect-0.0.2.tgz
     version: 0.0.2
+  redis-db-assignment-operator:
+  - apiVersion: v2
+    appVersion: v1.0.0
+    created: "2020-09-09T18:30:50.839048879Z"
+    description: Redis Database Assignment Operator
+    digest: 9ddff19bbe5217fbc478721bb510ae3f65be88d54aab74e5c33356d0dc04df10
+    home: https://github.com/WyriHaximusNet/docker-kubernetes-redis-db-assignment-operator
+    icon: https://helm.wyrihaximus.net/images/charts/redis-db-assignment-operator.png
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: redis-db-assignment-operator
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/redis-db-assignment-operator-1.0.0/redis-db-assignment-operator-1.0.0.tgz
+    version: 1.0.0
 generated: "2020-04-08T16:48:41.058035326Z"
