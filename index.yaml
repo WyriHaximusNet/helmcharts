@@ -2,6 +2,20 @@ apiVersion: v1
 entries:
   cron-jobs:
   - apiVersion: v2
+    created: "2020-10-11T17:17:14.327678238Z"
+    description: CronJobs library
+    digest: 68a37988adcc85e20013f0db2fef3a144f939fd6e60f7c09145038a5784f3547
+    home: https://github.com/wyrihaximusnet/helm-charts
+    icon: https://helm.wyrihaximus.net/images/charts/cron-jobs.png
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: cron-jobs
+    type: library
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/cron-jobs-0.1.1/cron-jobs-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
     created: "2020-10-11T16:56:48.438250096Z"
     description: CronJobs library
     digest: 8908575a2ec7e32e55e91894cb9de0b624e7a1de6dd45f8ed1b45b12d38ad707
@@ -18,6 +32,21 @@ entries:
   default-backend:
   - apiVersion: v2
     appVersion: random
+    created: "2020-10-11T17:17:14.412125688Z"
+    description: A Helm chart for Kubernetes
+    digest: 99c5688ad3848e93388657256bd8f6b322708ac0b8ca23524a753626366e0335
+    home: https://github.com/wyrihaximusnet/docker-default-backend
+    icon: https://helm.wyrihaximus.net/images/charts/default-backend.png
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: default-backend
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/default-backend-0.1.1/default-backend-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: random
     created: "2020-07-13T10:42:53.167272449Z"
     description: A Helm chart for Kubernetes
     digest: be8b98cb1a913a21940c3bf3425a0b617a53c09eec9c1c6c373cf1540f2e456a
@@ -32,6 +61,21 @@ entries:
     - https://github.com/WyriHaximusNet/helm-charts/releases/download/default-backend-0.1.0/default-backend-0.1.0.tgz
     version: 0.1.0
   docker-hub-exporter:
+  - apiVersion: v2
+    appVersion: d05df48
+    created: "2020-10-11T17:17:14.505623585Z"
+    description: Docker Hub Exporter
+    digest: e019ef0b52581f4088f2ba8e879105f4832646f112dcb1d77aa9be95ed71c9a1
+    home: https://github.com/jessestuart/docker-hub-exporter
+    icon: https://helm.wyrihaximus.net/images/charts/docker-hub-exporter.png
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: docker-hub-exporter
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/docker-hub-exporter-0.5.2/docker-hub-exporter-0.5.2.tgz
+    version: 0.5.2
   - apiVersion: v2
     appVersion: d05df48
     created: "2020-08-23T14:33:24.735759882Z"
@@ -183,6 +227,21 @@ entries:
     - https://github.com/WyriHaximusNet/helm-charts/releases/download/docker-hub-exporter-0.1.0/docker-hub-exporter-0.1.0.tgz
     version: 0.1.0
   redirect:
+  - apiVersion: v2
+    appVersion: random
+    created: "2020-10-11T17:17:14.59859138Z"
+    description: Redirect
+    digest: 919874ff052d01649368a676ff566d9ed964c35bbf316a53b66720d341ce5d29
+    home: https://github.com/wyrihaximusnet/docker-redirect
+    icon: https://helm.wyrihaximus.net/images/charts/redirect.png
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: redirect
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/redirect-0.5.5/redirect-0.5.5.tgz
+    version: 0.5.5
   - apiVersion: v2
     appVersion: random
     created: "2020-08-23T14:39:56.878063635Z"
@@ -404,6 +463,21 @@ entries:
     - https://github.com/WyriHaximusNet/helm-charts/releases/download/redirect-0.0.2/redirect-0.0.2.tgz
     version: 0.0.2
   redis-db-assignment-operator:
+  - apiVersion: v2
+    appVersion: v1.0.0
+    created: "2020-10-11T17:17:14.699243815Z"
+    description: Redis Database Assignment Operator
+    digest: 3cf0a4241a73b40a3b66741c6675d84d2a067b8a63a7b7be85751acfcc1f73ae
+    home: https://github.com/WyriHaximusNet/docker-kubernetes-redis-db-assignment-operator
+    icon: https://helm.wyrihaximus.net/images/charts/redis-db-assignment-operator.png
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: redis-db-assignment-operator
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/redis-db-assignment-operator-1.0.1/redis-db-assignment-operator-1.0.1.tgz
+    version: 1.0.1
   - apiVersion: v2
     appVersion: v1.0.0
     created: "2020-09-09T18:30:50.839048879Z"
