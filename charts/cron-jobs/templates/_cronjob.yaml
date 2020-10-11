@@ -1,0 +1,40 @@
+{{- define "cron-jobs.cronjob" }}
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: "{{ .name }}"
+  labels:
+    name: {{ .name }}
+    cron: {{ .name }}
+    {{- with .labels.cronjob }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+spec:
+  schedule: {{ .schedule | quote }}
+  concurrencyPolicy: Forbid
+  failedJobsHistoryLimit: 3
+  successfulJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            name: {{ .name }}
+            cron: {{ .name }}
+            {{- with .labels.jobTemplate }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
+        spec:
+          {{- with .spec }}
+          {{- toYaml . | nindent 10 }}
+          {{- end }}
+          containers:
+          - name: {{ .name }}
+            image: "{{ .image.repository }}:{{ .image.tag }}"
+            imagePullPolicy: {{ .image.imagePullPolicy }}
+            {{- with .container }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
+          restartPolicy: Never
+{{- end }}

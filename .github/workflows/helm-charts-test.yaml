@@ -35,6 +35,11 @@ jobs:
           installLocalPathProvisioner: true
         # Only build a kind cluster if there are chart changes to test.
 
+      - name: Prepare library charts
+        run: |
+          cp charts/cron-jobs/library-ci/*.yaml charts/cron-jobs/templates/
+          sed -i 's/library/application/g' charts/cron-jobs/Chart.yaml
+
       - name: Test charts
         uses: helm/chart-testing-action@v1.0.0
         with:

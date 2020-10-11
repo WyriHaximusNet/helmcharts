@@ -1,0 +1,3 @@
+{{- range $job := .Values.jobs }}
+{{- include "cron-jobs.cronjob" $job -}}
+{{- end }}
