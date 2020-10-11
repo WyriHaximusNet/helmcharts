@@ -1,5 +1,9 @@
 # Default Backend
 
+<p align="center">
+  <img src="https://helm.wyrihaximus.net/images/charts/default-backend.png">
+</p>
+
 Opinionated helm chart for [`wyrihaximusnet/default-backend`](https://github.com/wyrihaximusnet/docker-default-backend).
 
 ## Provided tags
