@@ -1,0 +1,22 @@
+jobs:
+  - name: sleep
+    schedule: "* * * * *"
+    labels:
+      cronjob:
+        key: value
+      jobTemplate:
+        key: value
+    container:
+      command: ["sleep"]
+      args: ["1"]
+      resources:
+        limits:
+          cpu: 1m
+          memory: 12Mi
+        requests:
+          cpu: 1m
+          memory: 12Mi
+    image:
+      repository: alpine
+      tag: 3.12
+      pullPolicy: IfNotPresent
