@@ -1,5 +1,9 @@
 # Redirect
 
+<p align="center">
+  <img src="https://helm.wyrihaximus.net/images/charts/redirect.png">
+</p>
+
 Opinionated helm chart for [`wyrihaximusnet/redirect`](https://github.com/wyrihaximusnet/docker-redirect).
 
 ## Provided tags

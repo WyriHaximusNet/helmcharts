@@ -1,5 +1,9 @@
 # Docker Hub Exporter
 
+<p align="center">
+  <img src="https://helm.wyrihaximus.net/images/charts/docker-hub-exporter.png">
+</p>
+
 Opinionated helm chart for [`jessestuart/docker-hub-exporter`](https://github.com/jessestuart/docker-hub-exporter).
 
 ## Configuration

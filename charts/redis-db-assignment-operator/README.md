@@ -1,5 +1,9 @@
 # Redis Database Assignment Operator
 
+<p align="center">
+  <img src="https://helm.wyrihaximus.net/images/charts/redis-db-assignment-operator.png">
+</p>
+
 Opinionated helm chart for [`wyrihaximusnet/docker-kubernetes-redis-db-assignment-operator`](https://github.com/WyriHaximusNet/docker-kubernetes-redis-db-assignment-operator).
 
 ## Configuration

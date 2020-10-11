@@ -1,5 +1,9 @@
 # Cron Jobs
 
+<p align="center">
+  <img src="https://helm.wyrihaximus.net/images/charts/cron-jobs.png">
+</p>
+
 Opinionated helm library chart for easy creation of cron jobs.
 
 # Example
