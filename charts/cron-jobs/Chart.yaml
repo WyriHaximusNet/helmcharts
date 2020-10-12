@@ -4,7 +4,7 @@ description: CronJobs library
 home: https://github.com/wyrihaximusnet/helm-charts
 icon: https://helm.wyrihaximus.net/images/charts/cron-jobs.png
 type: library
-version: 0.1.1
+version: 0.1.2
 maintainers:
   - name: WyriHaximus
     email: helm@wyrihaximus.net
