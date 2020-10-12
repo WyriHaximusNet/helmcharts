@@ -1,0 +1,3 @@
+{{- if .Values.cron.replaceOldestPodHourly -}}
+{{- include "cron-jobs.cronjob" (fromYaml (.Files.Get "values/cronjob.yaml" | replace "[[fullname]]" (include "default-backend.fullname" .) | replace "[[app]]" (include "default-backend.name" .) | replace "[[release]]" .Release.Name | replace "[[namespace]]" .Release.Namespace)) -}}
+{{ end }}

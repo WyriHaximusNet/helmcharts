@@ -4,8 +4,12 @@ description: A Helm chart for Kubernetes
 home: https://github.com/wyrihaximusnet/docker-default-backend
 icon: https://helm.wyrihaximus.net/images/charts/default-backend.png
 type: application
-version: 0.1.1
+version: 0.2.0
 appVersion: random
 maintainers:
   - name: WyriHaximus
     email: helm@wyrihaximus.net
+dependencies:
+  - name: cron-jobs
+    version: ^0.1
+    repository: https://helm.wyrihaximus.net/

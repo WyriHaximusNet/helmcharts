@@ -1,0 +1,6 @@
+dependencies:
+- name: cron-jobs
+  repository: https://helm.wyrihaximus.net/
+  version: 0.1.2
+digest: sha256:b2f8a780f27427de0b317c3a6d816e404a2b375bfc9d0110f7091849113db031
+generated: "2020-10-16T20:22:03.626863683+02:00"

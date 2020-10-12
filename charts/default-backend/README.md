@@ -13,19 +13,26 @@ Opinionated helm chart for [`wyrihaximusnet/default-backend`](https://github.com
 
 ## Configuration
 
-This chart has very little configuration, it runs without any. But it is reccomended to set the number of replica's 
+This chart has very little configuration, it runs without any. But it is recommended to set the number of replica's 
 (until autoscaling support has been added), and optionally configure ingress hosts. Listed below is my personal 
 configuration. Both [`k8s.wyrihaximus.net`](https://k8s.wyrihaximus.net/) and 
 [`default-backend.k8s.wyrihaximus.net`](https://default-backend.k8s.wyrihaximus.net/) are active, refresh the pages a 
-few times.
+few times. This configuration example also enables the cronjob that replaces the oldest pod, and forces the latest, 
+hourly retagged, Docker image to be used.
+
 ```yaml
 replicas: 3
+
+cron:
+  replaceOldestPodHourly: true
 
 ingress:
   hosts:
     - k8s.wyrihaximus.net
     - default-backend.k8s.wyrihaximus.net
 ```
+
+### 
 
 ## Opinionated decisions
 
@@ -35,4 +42,5 @@ ingress:
 * Prometheus export annotations are added for metric scraping.
 * The default tag is random to randomly cycle through the different `404` pages.
 * Comes with a pod
+* Replace oldest pod every hour to hook into the hourly random image retagging
 
