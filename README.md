@@ -4,12 +4,16 @@ Opinionated helm chats for my personal projects, and OSS Projects that either do
 
 ## Charts in this repository
 
-* [`cron-jobs`](https://artifacthub.io/packages/helm/wyrihaximusnet/cron-jobs)
+### Application
+
 * [`default-backend`](https://artifacthub.io/packages/helm/wyrihaximusnet/default-backend)
 * [`docker-hub-exporter`](https://artifacthub.io/packages/helm/wyrihaximusnet/docker-hub-exporter)
 * [`redirect`](https://artifacthub.io/packages/helm/wyrihaximusnet/redirect)
 * [`redis-db-assignment-operator`](https://artifacthub.io/packages/helm/wyrihaximusnet/redis-db-assignment-operator)
 
+### Library
+
+* [`cron-jobs`](https://artifacthub.io/packages/helm/wyrihaximusnet/cron-jobs)
 
 ## Opinionated decisions shared by all charts
 
