@@ -11,6 +11,9 @@ ingress:
 
 replicas: 2
 
+cron:
+  replaceOldestPodHourly: false
+
 resources:
   limits:
     cpu: 75m
