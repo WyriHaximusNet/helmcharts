@@ -14,6 +14,10 @@ replicas: 2
 cron:
   replaceOldestPodHourly: false
 
+hpa:
+  enable: false
+  maxReplicas: 1024
+
 resources:
   limits:
     cpu: 75m
