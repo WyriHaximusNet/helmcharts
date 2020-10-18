@@ -1,1 +1,4 @@
 replicas: 1
+
+hpa:
+  enable: true

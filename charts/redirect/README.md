@@ -35,6 +35,10 @@ redirect:
     www.ceesjankiewiet.nl: wyrihaximus.net
   ingressHosts:
     - www.wyrihaximus.net
+
+# Enable horizontal pod autoscaler
+hpa:
+  enable: true
 ```
 
 Keep in mind that the configuration options are executed in the following order:
