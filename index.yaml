@@ -46,6 +46,25 @@ entries:
   default-backend:
   - apiVersion: v2
     appVersion: random
+    created: "2020-10-18T15:59:54.370820164Z"
+    dependencies:
+    - name: cron-jobs
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    description: A Helm chart for Kubernetes
+    digest: edb6759e6d7c3f5b0c9658eee774da99796e1bc19eae1477e8927a977dfe392e
+    home: https://github.com/wyrihaximusnet/docker-default-backend
+    icon: https://helm.wyrihaximus.net/images/charts/default-backend.png
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: default-backend
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/default-backend-0.3.0/default-backend-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
+    appVersion: random
     created: "2020-10-16T20:42:01.085418465Z"
     dependencies:
     - name: cron-jobs
