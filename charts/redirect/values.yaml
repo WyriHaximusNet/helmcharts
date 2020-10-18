@@ -20,6 +20,10 @@ grafana:
 
 replicas: 2
 
+hpa:
+  enable: false
+  maxReplicas: 1024
+
 # Available tags: https://github.com/wyrihaximusnet/docker-redirect#provided-tags
 image:
   repository: wyrihaximusnet/redirect
