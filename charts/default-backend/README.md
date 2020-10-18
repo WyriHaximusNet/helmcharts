@@ -18,13 +18,16 @@ This chart has very little configuration, it runs without any. But it is recomme
 configuration. Both [`k8s.wyrihaximus.net`](https://k8s.wyrihaximus.net/) and 
 [`default-backend.k8s.wyrihaximus.net`](https://default-backend.k8s.wyrihaximus.net/) are active, refresh the pages a 
 few times. This configuration example also enables the cronjob that replaces the oldest pod, and forces the latest, 
-hourly retagged, Docker image to be used.
+hourly retagged, Docker image to be used. It also has the horizontal pod autoscaler enabled.
 
 ```yaml
 replicas: 3
 
 cron:
   replaceOldestPodHourly: true
+
+hpa:
+  enable: true
 
 ingress:
   hosts:
