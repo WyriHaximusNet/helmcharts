@@ -1,0 +1,10 @@
+apiVersion: v2
+name: horizontal-pod-autoscalers
+description: Horizontal Pod Autoscalers library
+home: https://github.com/wyrihaximusnet/helm-charts
+icon: https://helm.wyrihaximus.net/images/charts/horizontal-pod-autoscalers.png
+type: library
+version: 0.1.0
+maintainers:
+  - name: WyriHaximus
+    email: helm@wyrihaximus.net

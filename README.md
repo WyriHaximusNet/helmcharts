@@ -14,6 +14,7 @@ Opinionated helm chats for my personal projects, and OSS Projects that either do
 ### Library
 
 * [`cron-jobs`](https://artifacthub.io/packages/helm/wyrihaximusnet/cron-jobs)
+* [`horizontal-pod-autoscalers`](https://artifacthub.io/packages/helm/wyrihaximusnet/horizontal-pod-autoscalers)
 
 ## Opinionated decisions shared by all charts
 
