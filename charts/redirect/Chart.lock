@@ -1,0 +1,6 @@
+dependencies:
+- name: horizontal-pod-autoscalers
+  repository: https://helm.wyrihaximus.net/
+  version: 0.1.0
+digest: sha256:b69c147f2b6a3d345e7155979fc23ff6bbf4fa0c3822d1d9f64691ab29d9778c
+generated: "2020-10-20T19:31:36.647230414+02:00"
