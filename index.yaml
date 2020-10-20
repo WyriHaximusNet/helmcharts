@@ -278,6 +278,21 @@ entries:
     urls:
     - https://github.com/WyriHaximusNet/helm-charts/releases/download/docker-hub-exporter-0.1.0/docker-hub-exporter-0.1.0.tgz
     version: 0.1.0
+  horizontal-pod-autoscalers:
+  - apiVersion: v2
+    created: "2020-10-20T17:28:01.691457425Z"
+    description: Horizontal Pod Autoscalers library
+    digest: d533c0ef43c7325f233667e189b7978283895b039a13e32ede37164f3c732648
+    home: https://github.com/wyrihaximusnet/helm-charts
+    icon: https://helm.wyrihaximus.net/images/charts/horizontal-pod-autoscalers.png
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: horizontal-pod-autoscalers
+    type: library
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/horizontal-pod-autoscalers-0.1.0/horizontal-pod-autoscalers-0.1.0.tgz
+    version: 0.1.0
   redirect:
   - apiVersion: v2
     appVersion: random
