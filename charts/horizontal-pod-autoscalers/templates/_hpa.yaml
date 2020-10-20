@@ -1,0 +1,21 @@
+{{- define "horizontal-pod-autoscalers.hpa" }}
+---
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ .name }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ .name }}
+  minReplicas: {{ .replicas.min | default 2 }}
+  maxReplicas: {{ .replicas.max | default 1024 }}
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 50
+{{- end }}

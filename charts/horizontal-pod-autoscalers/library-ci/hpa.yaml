@@ -1,0 +1,48 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: default-backend
+  labels:
+    app: default-backend
+spec:
+  selector:
+    matchLabels:
+      app: default-backend
+  replicas: {{ .Values.replicas }}
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9696"
+      labels:
+        app: default-backend
+    spec:
+      containers:
+        - name: default-backend
+          image: "wyrihaximusnet/default-backend:random"
+          imagePullPolicy: Always
+          ports:
+            - name: default-backend
+              containerPort: 6969
+              protocol: TCP
+            - name: metrics
+              containerPort: 9696
+              protocol: TCP
+          livenessProbe:
+            failureThreshold: 6
+            httpGet:
+              path: /
+              port: metrics
+          readinessProbe:
+            failureThreshold: 6
+            httpGet:
+              path: /
+              port: metrics
+          startupProbe:
+            httpGet:
+              path: /
+              port: metrics
+            failureThreshold: 90
+            periodSeconds: 1
+{{ include "horizontal-pod-autoscalers.hpa" (dict "name" "default-backend" "replicas" (dict "min" .Values.replicas)) }}
