@@ -278,22 +278,26 @@ entries:
     urls:
     - https://github.com/WyriHaximusNet/helm-charts/releases/download/docker-hub-exporter-0.1.0/docker-hub-exporter-0.1.0.tgz
     version: 0.1.0
-  horizontal-pod-autoscalers:
+  redirect:
   - apiVersion: v2
-    created: "2020-10-20T17:28:01.691457425Z"
-    description: Horizontal Pod Autoscalers library
-    digest: d533c0ef43c7325f233667e189b7978283895b039a13e32ede37164f3c732648
-    home: https://github.com/wyrihaximusnet/helm-charts
-    icon: https://helm.wyrihaximus.net/images/charts/horizontal-pod-autoscalers.png
+    appVersion: random
+    created: "2020-10-20T17:47:43.165866127Z"
+    dependencies:
+    - name: horizontal-pod-autoscalers
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    description: Redirect
+    digest: fbc46423b8a0fc6ab01c7e440e7430d66657b1b5b36b9821b6466aef04a4cc87
+    home: https://github.com/wyrihaximusnet/docker-redirect
+    icon: https://helm.wyrihaximus.net/images/charts/redirect.png
     maintainers:
     - email: helm@wyrihaximus.net
       name: WyriHaximus
-    name: horizontal-pod-autoscalers
-    type: library
+    name: redirect
+    type: application
     urls:
-    - https://github.com/WyriHaximusNet/helm-charts/releases/download/horizontal-pod-autoscalers-0.1.0/horizontal-pod-autoscalers-0.1.0.tgz
-    version: 0.1.0
-  redirect:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/redirect-0.6.1/redirect-0.6.1.tgz
+    version: 0.6.1
   - apiVersion: v2
     appVersion: random
     created: "2020-10-18T16:10:23.222560056Z"
