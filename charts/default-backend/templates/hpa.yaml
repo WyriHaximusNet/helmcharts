@@ -1,20 +1,3 @@
 {{- if .Values.hpa.enable -}}
-apiVersion: autoscaling/v2beta2
-kind: HorizontalPodAutoscaler
-metadata:
-  name: {{ template "default-backend.fullname" . }}
-spec:
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: {{ template "default-backend.fullname" . }}
-  minReplicas: {{ .Values.replicas }}
-  maxReplicas: {{ .Values.hpa.maxReplicas }}
-  metrics:
-    - type: Resource
-      resource:
-        name: cpu
-        target:
-          type: Utilization
-          averageUtilization: 80
+{{- include "horizontal-pod-autoscalers.hpa" (dict "name" (include "default-backend.fullname" .) "replicas" (dict "min" .Values.replicas "max" .Values.hpa.maxReplicas)) -}}
 {{ end }}
