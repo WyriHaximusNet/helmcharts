@@ -46,6 +46,28 @@ entries:
   default-backend:
   - apiVersion: v2
     appVersion: random
+    created: "2020-10-20T20:53:27.626567623Z"
+    dependencies:
+    - name: cron-jobs
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    - name: horizontal-pod-autoscalers
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    description: A Helm chart for Kubernetes
+    digest: 20c5c4ea48a7a9b5793800e75691833d48a414eaa1e356fde587885213b643a4
+    home: https://github.com/wyrihaximusnet/docker-default-backend
+    icon: https://helm.wyrihaximus.net/images/charts/default-backend.png
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: default-backend
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/default-backend-0.3.1/default-backend-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
+    appVersion: random
     created: "2020-10-18T15:59:54.370820164Z"
     dependencies:
     - name: cron-jobs
