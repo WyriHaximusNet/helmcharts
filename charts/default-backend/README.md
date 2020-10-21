@@ -39,6 +39,7 @@ ingress:
 
 ## Opinionated decisions
 
+* requires kubernetes ^1.18
 * Ports are hardcoded to `6969` for the service, and `9696` for the metrics.
 * TLS is assumed to be required, and is set up based on supplied hosts in `ingress.hosts`.
 * It's assumed that this helm chart will be run in it's own namespace, so the naming for all resources is kept as simple as possible.
