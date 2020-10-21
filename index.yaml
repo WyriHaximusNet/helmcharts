@@ -302,6 +302,21 @@ entries:
     version: 0.1.0
   horizontal-pod-autoscalers:
   - apiVersion: v2
+    created: "2020-10-21T18:32:51.913839314Z"
+    description: Horizontal Pod Autoscalers library
+    digest: b51514f9b7d3687d976a3246d4d3bef51d077a68b638c2d429e27a7de0185559
+    home: https://github.com/wyrihaximusnet/helm-charts
+    icon: https://helm.wyrihaximus.net/images/charts/horizontal-pod-autoscalers.png
+    kubeVersion: ^1.18
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: horizontal-pod-autoscalers
+    type: library
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/horizontal-pod-autoscalers-0.2.0/horizontal-pod-autoscalers-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
     created: "2020-10-20T17:28:01.691457425Z"
     description: Horizontal Pod Autoscalers library
     digest: d533c0ef43c7325f233667e189b7978283895b039a13e32ede37164f3c732648
