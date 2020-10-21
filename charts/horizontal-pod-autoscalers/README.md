@@ -25,5 +25,7 @@ replicas:
 
 ## Opinionated decisions
 
+* requires kubernetes ^1.18
 * 1024 max replica's
 * scales when average CPU usage goes above 50%
+* scaling down happens at one pod a minute
