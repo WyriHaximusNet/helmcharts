@@ -46,6 +46,29 @@ entries:
   default-backend:
   - apiVersion: v2
     appVersion: random
+    created: "2020-10-21T18:49:48.899832321Z"
+    dependencies:
+    - name: cron-jobs
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    - name: horizontal-pod-autoscalers
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.2
+    description: A Helm chart for Kubernetes
+    digest: c9a8bda1cc53be09d35163b35aed6d928f026e2b7c7e92ddc12c01660dac2a14
+    home: https://github.com/wyrihaximusnet/docker-default-backend
+    icon: https://helm.wyrihaximus.net/images/charts/default-backend.png
+    kubeVersion: ^1.18
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: default-backend
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/default-backend-0.4.0/default-backend-0.4.0.tgz
+    version: 0.4.0
+  - apiVersion: v2
+    appVersion: random
     created: "2020-10-20T20:53:27.626567623Z"
     dependencies:
     - name: cron-jobs
@@ -331,6 +354,26 @@ entries:
     - https://github.com/WyriHaximusNet/helm-charts/releases/download/horizontal-pod-autoscalers-0.1.0/horizontal-pod-autoscalers-0.1.0.tgz
     version: 0.1.0
   redirect:
+  - apiVersion: v2
+    appVersion: random
+    created: "2020-10-21T18:49:48.982397937Z"
+    dependencies:
+    - name: horizontal-pod-autoscalers
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.2
+    description: Redirect
+    digest: b25be031e15369f856a2fe913c2fbf9eee5fcb81ac72f4579901600ab2c1ff4d
+    home: https://github.com/wyrihaximusnet/docker-redirect
+    icon: https://helm.wyrihaximus.net/images/charts/redirect.png
+    kubeVersion: ^1.18
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: redirect
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/redirect-0.7.0/redirect-0.7.0.tgz
+    version: 0.7.0
   - apiVersion: v2
     appVersion: random
     created: "2020-10-20T17:47:43.165866127Z"
