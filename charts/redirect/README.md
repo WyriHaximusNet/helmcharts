@@ -48,6 +48,7 @@ Keep in mind that the configuration options are executed in the following order:
 
 ## Opinionated decisions
 
+* requires kubernetes ^1.18
 * Ports are hardcoded to `7132` for the service, and `7133` for the metrics.
 * TLS is assumed to be required, and is set up based on supplied hosts in `redirect.hosts` and `redirect.ingressHosts`.
 * It's assumed that this helm chart will be run in it's own namespace, so the naming for all resources is kept as simple as possible.
