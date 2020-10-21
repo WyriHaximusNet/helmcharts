@@ -11,6 +11,12 @@ spec:
     name: {{ .name }}
   minReplicas: {{ .replicas.min | default 2 }}
   maxReplicas: {{ .replicas.max | default 1024 }}
+  behavior:
+    scaleDown:
+      policies:
+        - type: Pods
+          value: 1
+          periodSeconds: 60
   metrics:
     - type: Resource
       resource:
