@@ -20,6 +20,9 @@ grafana:
 
 replicas: 2
 
+cron:
+  replaceOldestPodWeekly: false
+
 hpa:
   enable: false
   maxReplicas: 1024

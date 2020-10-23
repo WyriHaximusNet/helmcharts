@@ -39,6 +39,10 @@ redirect:
 # Enable horizontal pod autoscaler
 hpa:
   enable: true
+
+# Cron job that replaces the oldest pod weekly
+cron:
+  replaceOldestPodWeekly: false
 ```
 
 Keep in mind that the configuration options are executed in the following order:
@@ -55,4 +59,5 @@ Keep in mind that the configuration options are executed in the following order:
 * Prometheus export annotations are added for metric scraping.
 * The default tag is random to randomly cycle through the different implementations, here is the [why](https://github.com/WyriHaximusNet/docker-redirect#why).
 * Comes with a pod
+* Replace oldest pod every week to hook into the weekly random image retagging
 

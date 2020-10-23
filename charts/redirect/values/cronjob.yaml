@@ -1,0 +1,19 @@
+name: replace-oldest-pod-in-deployment
+schedule: "0 0 * * 1"
+container:
+  command:
+    - /bin/sh
+  args:
+    - -c
+    - kubectl delete pod $(kubectl get pods --selector=app=[[app]] --selector=release=[[release]] -n [[namespace]]  --sort-by=.status.startTime --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}' | head -n 1) -n [[namespace]]
+image:
+  repository: bitnami/kubectl
+  tag: 1.19
+  pullPolicy: IfNotPresent
+spec:
+  serviceAccountName: [[fullname]]-recycle-cronjob
+labels:
+  cronjob:
+    purpose: housekeeping
+  jobTemplate:
+    purpose: housekeeping
