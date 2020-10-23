@@ -30,6 +30,7 @@ Full configuration example:
 redirect:
 # The default fallback is use in case the application can't find a domain to redirect to within the other configuration options
   defaultFallbackTarget: https://www.wyrihaximus.net/
+  enforceHttps: true
   buildin: wwwToNonWww
   hosts:
     www.ceesjankiewiet.nl: wyrihaximus.net
@@ -60,4 +61,3 @@ Keep in mind that the configuration options are executed in the following order:
 * The default tag is random to randomly cycle through the different implementations, here is the [why](https://github.com/WyriHaximusNet/docker-redirect#why).
 * Comes with a pod
 * Replace oldest pod every week to hook into the weekly random image retagging
-
