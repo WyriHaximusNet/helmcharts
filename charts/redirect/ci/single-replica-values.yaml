@@ -1,4 +1,7 @@
 replicas: 1
 
+cron:
+  replaceOldestPodWeekly: false
+
 hpa:
   enable: true

@@ -1,0 +1,20 @@
+{{- if .Values.cron.replaceOldestPodWeekly -}}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ include ".helm.fullname" . }}-recycle-cronjob
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ include ".helm.fullname" . }}
+    appRevision: {{ template ".helm.nameRevision" . }}
+    release: {{ include ".helm.fullname" . }}
+    releaseRevision: {{ .Release.Revision | quote }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: {{ include ".helm.fullname" . }}-recycle-cronjob
+subjects:
+  - kind: ServiceAccount
+    name: {{ include ".helm.fullname" . }}-recycle-cronjob
+    namespace: {{ .Release.Namespace }}
+{{ end }}
