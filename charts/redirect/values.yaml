@@ -8,6 +8,7 @@
 redirect:
 # The default fallback is use in case the application can't find a domain to redirect to within the other configuration options
   defaultFallbackTarget: https://www.wyrihaximus.net/
+  enforceHttps: false
   buildin: wwwToNonWww
   hosts:
     www.ceesjankiewiet.nl: wyrihaximus.net

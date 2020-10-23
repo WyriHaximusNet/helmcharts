@@ -5,3 +5,6 @@ cron:
 
 hpa:
   enable: true
+
+redirect:
+  enforceHttps: false
