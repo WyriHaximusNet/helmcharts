@@ -1,6 +1,6 @@
 image:
-  repository: wyrihaximusnet/kubernetes-redis-db-assignment-operator
-  tag: v1.0.0
+  repository: ghcr.io/wyrihaximusnet/kubernetes-redis-db-assignment-operator
+  tag: v1.0.1
   pullPolicy: IfNotPresent
 
 resources:
