@@ -46,6 +46,29 @@ entries:
   default-backend:
   - apiVersion: v2
     appVersion: random
+    created: "2020-11-02T00:14:21.102056849Z"
+    dependencies:
+    - name: cron-jobs
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    - name: horizontal-pod-autoscalers
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.2
+    description: A Helm chart for Kubernetes
+    digest: afa78d2f9ed9d2ca6e13f3bbede661a9a58980c0f7713b14df2a33a19d81306a
+    home: https://github.com/wyrihaximusnet/docker-default-backend
+    icon: https://helm.wyrihaximus.net/images/charts/default-backend.png
+    kubeVersion: ^1.18
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: default-backend
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/default-backend-0.4.1/default-backend-0.4.1.tgz
+    version: 0.4.1
+  - apiVersion: v2
+    appVersion: random
     created: "2020-10-21T18:49:48.899832321Z"
     dependencies:
     - name: cron-jobs
@@ -354,6 +377,29 @@ entries:
     - https://github.com/WyriHaximusNet/helm-charts/releases/download/horizontal-pod-autoscalers-0.1.0/horizontal-pod-autoscalers-0.1.0.tgz
     version: 0.1.0
   redirect:
+  - apiVersion: v2
+    appVersion: random
+    created: "2020-11-02T00:14:21.210959699Z"
+    dependencies:
+    - name: cron-jobs
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    - name: horizontal-pod-autoscalers
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.2
+    description: Redirect
+    digest: 955e0707055e514567499e2f87035986784e5f5a09eb9a87924f95b6d4adb167
+    home: https://github.com/wyrihaximusnet/docker-redirect
+    icon: https://helm.wyrihaximus.net/images/charts/redirect.png
+    kubeVersion: ^1.18
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: redirect
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/redirect-0.9.1/redirect-0.9.1.tgz
+    version: 0.9.1
   - apiVersion: v2
     appVersion: random
     created: "2020-10-23T21:25:50.801146428Z"
@@ -690,6 +736,21 @@ entries:
     - https://github.com/WyriHaximusNet/helm-charts/releases/download/redirect-0.0.2/redirect-0.0.2.tgz
     version: 0.0.2
   redis-db-assignment-operator:
+  - apiVersion: v2
+    appVersion: v1.0.1
+    created: "2020-11-02T00:14:21.332938666Z"
+    description: Redis Database Assignment Operator
+    digest: 2bce18c6d12d47576a3ef58b4d0b64b3a4b5a6fcde5d6ea646b514f19c120bc4
+    home: https://github.com/WyriHaximusNet/docker-kubernetes-redis-db-assignment-operator
+    icon: https://helm.wyrihaximus.net/images/charts/redis-db-assignment-operator.png
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: redis-db-assignment-operator
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/redis-db-assignment-operator-1.0.2/redis-db-assignment-operator-1.0.2.tgz
+    version: 1.0.2
   - apiVersion: v2
     appVersion: v1.0.0
     created: "2020-10-11T17:17:14.699243815Z"
