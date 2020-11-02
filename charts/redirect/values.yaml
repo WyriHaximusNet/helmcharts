@@ -30,7 +30,7 @@ hpa:
 
 # Available tags: https://github.com/wyrihaximusnet/docker-redirect#provided-tags
 image:
-  repository: wyrihaximusnet/redirect
+  repository: ghcr.io/wyrihaximusnet/redirect
   tag: random
   pullPolicy: Always
 

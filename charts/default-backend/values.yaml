@@ -1,5 +1,5 @@
 image:
-  repository: wyrihaximusnet/default-backend
+  repository: ghcr.io/wyrihaximusnet/default-backend
   tag: random
   pullPolicy: Always
 
