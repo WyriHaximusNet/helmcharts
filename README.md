@@ -8,6 +8,7 @@ Opinionated helm chats for my personal projects, and OSS Projects that either do
 
 * [`default-backend`](https://artifacthub.io/packages/helm/wyrihaximusnet/default-backend)
 * [`docker-hub-exporter`](https://artifacthub.io/packages/helm/wyrihaximusnet/docker-hub-exporter)
+* [`pi-hole-exporter`](https://artifacthub.io/packages/helm/wyrihaximusnet/pi-hole-exporter)
 * [`redirect`](https://artifacthub.io/packages/helm/wyrihaximusnet/redirect)
 * [`redis-db-assignment-operator`](https://artifacthub.io/packages/helm/wyrihaximusnet/redis-db-assignment-operator)
 
