@@ -376,6 +376,22 @@ entries:
     urls:
     - https://github.com/WyriHaximusNet/helm-charts/releases/download/horizontal-pod-autoscalers-0.1.0/horizontal-pod-autoscalers-0.1.0.tgz
     version: 0.1.0
+  pi-hole-exporter:
+  - apiVersion: v2
+    appVersion: d05df48
+    created: "2020-11-13T17:35:46.558215111Z"
+    description: Pi-Hole Exporter
+    digest: f962d4cb71a9f7415445f53fd1eda2119b228d7a3ba023616fd276269f158b24
+    home: https://github.com/eko/pihole-exporter
+    icon: https://helm.wyrihaximus.net/images/charts/pi-hole-exporter.png
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: pi-hole-exporter
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/pi-hole-exporter-0.1.0/pi-hole-exporter-0.1.0.tgz
+    version: 0.1.0
   redirect:
   - apiVersion: v2
     appVersion: random
