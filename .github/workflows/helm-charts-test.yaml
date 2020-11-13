@@ -50,11 +50,13 @@ jobs:
           echo ::set-output name=url::$(echo "postgresql://postgres:${{ steps.postgresql_passowrd.outputs.password }}@postgresql-helm-charts-${{ github.run_number }}.default/postgres")
       - name: Prepare library charts
         run: |
+          cp charts/commons/library-ci/*.yaml charts/commons/templates/
           cp charts/cron-jobs/library-ci/*.yaml charts/cron-jobs/templates/
           cp charts/horizontal-pod-autoscalers/library-ci/*.yaml charts/horizontal-pod-autoscalers/templates/
           cp charts/pi-hole-exporter/library-ci/*.yaml charts/pi-hole-exporter/templates/
           sed -i '$ d' charts/commento/ci/postgresql-values.yaml
           echo -e "  manual: \"${{ steps.postgresql.outputs.url }}\"\r\n" >> charts/commento/ci/postgresql-values.yaml
+          sed -i 's/library/application/g' charts/commons/Chart.yaml
           sed -i 's/library/application/g' charts/cron-jobs/Chart.yaml
           sed -i 's/library/application/g' charts/horizontal-pod-autoscalers/Chart.yaml
       - name: Test charts

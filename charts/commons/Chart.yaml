@@ -1,0 +1,10 @@
+apiVersion: v2
+name: commons
+description: commons library
+home: https://github.com/wyrihaximusnet/helm-charts
+icon: https://helm.wyrihaximus.net/images/charts/commons.png
+type: library
+version: 0.1.0
+maintainers:
+  - name: WyriHaximus
+    email: helm@wyrihaximus.net
