@@ -40,6 +40,7 @@ jobs:
         run: |
           cp charts/cron-jobs/library-ci/*.yaml charts/cron-jobs/templates/
           cp charts/horizontal-pod-autoscalers/library-ci/*.yaml charts/horizontal-pod-autoscalers/templates/
+          cp charts/pi-hole-exporter/library-ci/*.yaml charts/pi-hole-exporter/templates/
           sed -i 's/library/application/g' charts/cron-jobs/Chart.yaml
           sed -i 's/library/application/g' charts/horizontal-pod-autoscalers/Chart.yaml
 

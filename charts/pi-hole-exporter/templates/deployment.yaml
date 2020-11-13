@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include ".helm.fullname" . }}
+  labels:
+    app: {{ include ".helm.fullname" . }}
+    appRevision: {{ template ".helm.nameRevision" . }}
+    release: {{ include ".helm.fullname" . }}
+    releaseRevision: {{ .Release.Revision | quote }}
+    {{- include ".helm.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      {{- include ".helm.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9617"
+      labels:
+        app: {{ include ".helm.fullname" . }}
+        release: {{ include ".helm.fullname" . }}
+        {{- include ".helm.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: pi-hole-exporter
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: metrics
+              containerPort: 9617
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /metrics
+              port: metrics
+          readinessProbe:
+            httpGet:
+              path: /metrics
+              port: metrics
+          startupProbe:
+            failureThreshold: 120
+            periodSeconds: 1
+            httpGet:
+              path: /metrics
+              port: metrics
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          envFrom:
+            - secretRef:
+                name: {{ .Values.configurationSecret | quote }}
+          env:
+            - name: INTERVAL
+              value: "30s"
+            - name: PORT
+              value: "9617"
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - {{ template ".helm.nameRevision" . }}
+            topologyKey: "kubernetes.io/hostname"

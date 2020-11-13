@@ -1,0 +1,17 @@
+image:
+  repository: ekofr/pihole-exporter
+  tag: 0.0.10
+  pullPolicy: IfNotPresent
+
+configurationSecret: pi-hole
+
+replicas: 1
+
+resources:
+  # Setting this pretty low since this is a low resource intensive application, increase when needed
+  limits:
+    cpu: 30m
+    memory: 64Mi
+  requests:
+    cpu: 30m
+    memory: 64Mi
