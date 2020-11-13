@@ -1,0 +1,94 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "commento.fullname" . }}
+  labels:
+    app: {{ template "commento.name" . }}
+    chart: {{ template "commento.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: {{ template "commento.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "commento.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: commento
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: commento
+              containerPort: 8967
+              protocol: TCP
+          {{- if eq (empty .Values.secrets) false }}
+          envFrom:
+          {{- range .Values.secrets }}
+            - secretRef:
+                name: {{ . }}
+          {{- end }}
+          {{- end }}
+          env:
+            - name: "COMMENTO_ORIGIN_HOST"
+              value: {{ .Values.ingress.host | quote}}
+            - name: "COMMENTO_ORIGIN"
+              value: "https://$(COMMENTO_ORIGIN_HOST)"
+            - name: "COMMENTO_BIND_ADDRESS"
+              value: "0.0.0.0"
+            - name: "COMMENTO_PORT"
+              value: "8967"
+            {{- if .Values.database.movetokube.enable }}
+            - name: "COMMENTO_POSTGRES_BASE"
+              valueFrom:
+                secretKeyRef:
+                  key: POSTGRES_URL
+                  name: {{ .Values.database.movetokube.name }}-postgres-credentials-{{ .Values.database.movetokube.name }}-user
+            {{- else if .Values.database.secret.enable }}
+            - name: "COMMENTO_POSTGRES_BASE"
+              valueFrom:
+                secretKeyRef:
+                  key: {{ .Values.database.secret.key }}
+                  name: {{ .Values.database.secret.secret }}
+            {{- else }}
+            - name: "COMMENTO_POSTGRES_BASE"
+              value: {{ .Values.database.manual }}
+            {{- end }}
+            - name: "COMMENTO_POSTGRES_SUFFIX"
+              value: {{ .Values.database.urlSuffix | quote }}
+            - name: "COMMENTO_POSTGRES"
+              value: "$(COMMENTO_POSTGRES_BASE)$(COMMENTO_POSTGRES_SUFFIX)"
+            - name: "COMMENTO_FORBID_NEW_OWNERS"
+              value: {{ .Values.application.forbidNewOwners | quote }}
+          livenessProbe:
+            httpGet:
+              path: /login
+              port: commento
+          readinessProbe:
+            httpGet:
+              path: /login
+              port: commento
+          startupProbe:
+            failureThreshold: 120
+            httpGet:
+              path: /login
+              port: commento
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}

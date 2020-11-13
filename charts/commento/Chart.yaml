@@ -1,0 +1,14 @@
+apiVersion: v2
+appVersion: "v1.8.0"
+description: Helm chart to install commento on a kubernetes cluster
+home: https://commento.io/
+icon: https://cdn.commento.io/images/logo.svg
+name: commento
+version: 0.1.0
+maintainers:
+  - name: WyriHaximus
+    email: helm@wyrihaximus.net
+dependencies:
+  - name: horizontal-pod-autoscalers
+    version: ^0.2
+    repository: https://helm.wyrihaximus.net/

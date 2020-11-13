@@ -1,0 +1,8 @@
+replicaCount: 1
+
+hpa:
+  enable: true
+
+database:
+  urlSuffix: "?sslmode=disable"
+  manual:
