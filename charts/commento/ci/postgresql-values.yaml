@@ -5,4 +5,4 @@ hpa:
 
 database:
   urlSuffix: "?sslmode=disable"
-  manual:
+  manual: "postgresql://postgres:postgres@postgres/postgres"

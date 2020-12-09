@@ -11,8 +11,6 @@ jobs:
 
       - name: Fetch history
         run: git fetch --prune --unshallow
-      - run: |
-          echo -e " \"postgresql://postgres:postgres@postgres/postgres\"" >> charts/commento/ci/postgresql-values.yaml
       - name: Lint charts
         id: lint
         uses: helm/chart-testing-action@v1.1.0
@@ -55,7 +53,8 @@ jobs:
           cp charts/cron-jobs/library-ci/*.yaml charts/cron-jobs/templates/
           cp charts/horizontal-pod-autoscalers/library-ci/*.yaml charts/horizontal-pod-autoscalers/templates/
           cp charts/pi-hole-exporter/library-ci/*.yaml charts/pi-hole-exporter/templates/
-          echo -e " \"${{ steps.postgresql.outputs.url }}\"" >> charts/commento/ci/postgresql-values.yaml
+          sed -i '$ d' charts/commento/ci/postgresql-values.yaml
+          echo -e "  manual: \"${{ steps.postgresql.outputs.url }}\"\r\n" >> charts/commento/ci/postgresql-values.yaml
           sed -i 's/library/application/g' charts/cron-jobs/Chart.yaml
           sed -i 's/library/application/g' charts/horizontal-pod-autoscalers/Chart.yaml
       - name: Test charts

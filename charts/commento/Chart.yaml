@@ -4,7 +4,7 @@ description: Helm chart to install commento on a kubernetes cluster
 home: https://commento.io/
 icon: https://cdn.commento.io/images/logo.svg
 name: commento
-version: 0.1.0
+version: 0.1.1
 maintainers:
   - name: WyriHaximus
     email: helm@wyrihaximus.net
