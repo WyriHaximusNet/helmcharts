@@ -2,13 +2,10 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: {{ include "default-backend.fullname" . }}-recycle-cronjob
+  name: {{ include "commons.fullname" . }}-recycle-cronjob
   namespace: {{ .Release.Namespace }}
   labels:
-    app: {{ include "default-backend.fullname" . }}
-    appRevision: {{ template "default-backend.nameRevision" . }}
-    release: {{ include "default-backend.fullname" . }}
-    releaseRevision: {{ .Release.Revision | quote }}
+    {{- include "commons.labels" . | nindent 4 }}
 rules:
 - apiGroups: [""]
   resources: ["pods"]

@@ -1,9 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "{{ include ".helm.fullname" . }}-test-redirect-connection"
-  labels:
-{{ include ".helm.labels" . | nindent 4 }}
+  name: "{{ include "commons.fullname" . }}-test-redirect-connection"
   annotations:
     "helm.sh/hook": test-success
 spec:
@@ -11,5 +9,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args:  ['{{ include ".helm.fullname" . }}:7132']
+      args:  ['{{ include "commons.fullname" . }}:7132']
   restartPolicy: Never

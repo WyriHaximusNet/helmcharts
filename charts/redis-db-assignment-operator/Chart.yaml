@@ -4,8 +4,12 @@ description: Redis Database Assignment Operator
 home: https://github.com/WyriHaximusNet/docker-kubernetes-redis-db-assignment-operator
 icon: https://helm.wyrihaximus.net/images/charts/redis-db-assignment-operator.png
 type: application
-version: 1.0.2
+version: 1.0.3
 appVersion: v1.0.1
 maintainers:
   - name: WyriHaximus
     email: helm@wyrihaximus.net
+dependencies:
+  - name: commons
+    version: ^0.1
+    repository: https://helm.wyrihaximus.net/

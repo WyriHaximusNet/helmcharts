@@ -1,7 +1,7 @@
 Congratulations, your prometheus compatible scraped Pi-Hole metrics are now available for scraping.
 
 You can access them by using a port forward:
-kubectl port-forward svc/{{ include ".helm.fullname" . }} 9617:9617 -n {{ .Release.Namespace }}
+kubectl port-forward svc/{{ include "commons.fullname" . }} 9617:9617 -n {{ .Release.Namespace }}
 
 And then point your browser to:
 http://localhost:9617/metrics

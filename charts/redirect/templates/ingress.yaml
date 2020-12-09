@@ -1,4 +1,4 @@
-{{- $fullName := include ".helm.fullname" . -}}
+{{- $fullName := include "commons.fullname" . -}}
 {{- $hosts := .Values.redirect.hosts -}}
 {{- $ingressHosts := .Values.redirect.ingressHosts -}}
 apiVersion: networking.k8s.io/v1beta1
@@ -6,7 +6,7 @@ kind: Ingress
 metadata:
   name: {{ $fullName }}
   labels:
-    {{- include ".helm.labels" . | nindent 4 }}
+    {{- include "commons.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
@@ -16,14 +16,14 @@ spec:
   {{- if $hosts -}}
     {{- range $hostFrom, $hostTo := $hosts }}
       {{- $host := dict "Host" $hostFrom -}}
-      {{ include ".helm.hostTLS" $host | nindent 4 }}
+      {{ include "redirect.hostTLS" $host | nindent 4 }}
     {{- end }}
   {{- end }}
   {{- if $ingressHosts -}}
     {{- range $host := $ingressHosts }}
       {{- if eq (hasKey $hosts $host) false -}}
         {{- $host := dict "Host" $host -}}
-        {{ include ".helm.hostTLS" $host | nindent 4 }}
+        {{ include "redirect.hostTLS" $host | nindent 4 }}
       {{- end }}
     {{- end }}
   {{- end }}
@@ -31,14 +31,14 @@ spec:
   {{- if $hosts -}}
     {{- range $hostFrom, $hostTo := $hosts }}
       {{- $host := dict "Host" $hostFrom "FullName" $fullName "SvcPort" 7132 -}}
-      {{ include ".helm.hostRule" $host | nindent 4 }}
+      {{ include "redirect.hostRule" $host | nindent 4 }}
     {{- end }}
   {{- end }}
   {{- if $ingressHosts -}}
     {{- range $host := $ingressHosts }}
       {{- if eq (hasKey $hosts $host) false -}}
         {{- $host := dict "Host" $host "FullName" $fullName "SvcPort" 7132 -}}
-        {{ include ".helm.hostRule" $host | nindent 4 }}
+        {{ include "redirect.hostRule" $host | nindent 4 }}
       {{- end }}
     {{- end }}
   {{- end }}

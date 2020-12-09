@@ -1,14 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "default-backend.fullname" . }}
+  name: {{ template "commons.fullname" . }}
   labels:
-    app: {{ template "default-backend.name" . }}
-    appRevision: {{ template "default-backend.nameRevision" . }}
-    chart: {{ template "default-backend.chart" . }}
-    release: {{ .Release.Name }}
-    releaseRevision: {{ .Release.Revision | quote }}
-    heritage: {{ .Release.Service }}
+    {{- include "commons.labels" . | nindent 4 }}
 spec:
   type: ClusterIP
   ports:
@@ -21,5 +16,4 @@ spec:
       protocol: TCP
       name: metrics
   selector:
-    app: {{ template "default-backend.name" . }}
-    release: {{ .Release.Name }}
+    {{- include "commons.selectorLabels" . | nindent 6 }}

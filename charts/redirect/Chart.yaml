@@ -4,13 +4,16 @@ description: Redirect
 home: https://github.com/wyrihaximusnet/docker-redirect
 icon: https://helm.wyrihaximus.net/images/charts/redirect.png
 type: application
-version: 0.9.2
+version: 0.9.3
 kubeVersion: ^1.18
 appVersion: random
 maintainers:
   - name: WyriHaximus
     email: helm@wyrihaximus.net
 dependencies:
+  - name: commons
+    version: ^0.1
+    repository: https://helm.wyrihaximus.net/
   - name: cron-jobs
     version: ^0.1
     repository: https://helm.wyrihaximus.net/

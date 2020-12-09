@@ -2,11 +2,10 @@
 apiVersion: policy/v1beta1
 kind: PodDisruptionBudget
 metadata:
-  name: {{ template "default-backend.fullname" . }}
+  name: {{ template "commons.fullname" . }}
 spec:
   maxUnavailable: 1
   selector:
     matchLabels:
-      app: {{ include "default-backend.fullname" . }}
-      release: {{ include "default-backend.fullname" . }}
+      {{- include "commons.selectorLabels" . | nindent 6 }}
 {{ end }}

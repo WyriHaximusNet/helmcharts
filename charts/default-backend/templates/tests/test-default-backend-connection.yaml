@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "{{ include "default-backend.fullname" . }}-test-default-backend-connection"
+  name: {{ include "commons.fullname" . }}-test-default-backend-connection
   annotations:
     "helm.sh/hook": test-success
 spec:
@@ -9,5 +9,5 @@ spec:
     - name: wget
       image: alpine
       command: ['nc']
-      args:  ['-zv','{{ include "default-backend.fullname" . }}:6969']
+      args:  ['-zv','{{ include "commons.fullname" . }}:6969']
   restartPolicy: Never

@@ -2,19 +2,16 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: {{ include "default-backend.fullname" . }}-recycle-cronjob
+  name: {{ include "commons.fullname" . }}-recycle-cronjob
   namespace: {{ .Release.Namespace }}
   labels:
-    app: {{ include "default-backend.fullname" . }}
-    appRevision: {{ template "default-backend.nameRevision" . }}
-    release: {{ include "default-backend.fullname" . }}
-    releaseRevision: {{ .Release.Revision | quote }}
+    {{- include "commons.labels" . | nindent 4 }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: {{ include "default-backend.fullname" . }}-recycle-cronjob
+  name: {{ include "commons.fullname" . }}-recycle-cronjob
 subjects:
   - kind: ServiceAccount
-    name: {{ include "default-backend.fullname" . }}-recycle-cronjob
+    name: {{ include "commons.fullname" . }}-recycle-cronjob
     namespace: {{ .Release.Namespace }}
 {{ end }}

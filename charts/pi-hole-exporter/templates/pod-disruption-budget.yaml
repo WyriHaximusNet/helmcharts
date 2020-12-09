@@ -2,11 +2,10 @@
 apiVersion: policy/v1beta1
 kind: PodDisruptionBudget
 metadata:
-  name: {{ include ".helm.fullname" . }}
+  name: {{ include "commons.fullname" . }}
 spec:
   minAvailable: 1
   selector:
     matchLabels:
-      app: {{ include ".helm.fullname" . }}
-      release: {{ include ".helm.fullname" . }}
+      {{- include "commons.selectorLabels" . | nindent 6 }}
 {{ end }}
