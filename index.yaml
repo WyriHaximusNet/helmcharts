@@ -37,6 +37,21 @@ entries:
     urls:
     - https://github.com/WyriHaximusNet/helm-charts/releases/download/commento-0.1.0/commento-0.1.0.tgz
     version: 0.1.0
+  commons:
+  - apiVersion: v2
+    created: "2020-12-09T20:36:05.489209528Z"
+    description: commons library
+    digest: d8a63c6c1107a1c32b9c1bf8e721a463dbb3502062eec4e2de04112479a0e767
+    home: https://github.com/wyrihaximusnet/helm-charts
+    icon: https://helm.wyrihaximus.net/images/charts/commons.png
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: commons
+    type: library
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/commons-0.1.0/commons-0.1.0.tgz
+    version: 0.1.0
   cron-jobs:
   - apiVersion: v2
     created: "2020-10-12T20:45:13.84577352Z"
