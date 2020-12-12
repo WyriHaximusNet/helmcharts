@@ -1,0 +1,6 @@
+dependencies:
+- name: commons
+  repository: https://helm.wyrihaximus.net/
+  version: 0.1.0
+digest: sha256:efd30fea39b80df7317aac63d028ff031778f475f23460a62ccbc554c2e4e264
+generated: "2020-12-11T00:31:16.9755869+01:00"

@@ -1,35 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include ".helm.fullname" . }}
+  name: {{ include "commons.fullname" . }}
   labels:
-    app: {{ include ".helm.fullname" . }}
-    appRevision: {{ template ".helm.nameRevision" . }}
-    release: {{ include ".helm.fullname" . }}
-    releaseRevision: {{ .Release.Revision | quote }}
-    {{- include ".helm.labels" . | nindent 4 }}
+    {{- include "commons.labels" . | nindent 4 }}
     {{- toYaml .Values.labels | nindent 4 }}
 spec:
   replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
-      {{- include ".helm.selectorLabels" . | nindent 6 }}
+      {{- include "commons.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "7133"
       labels:
-        app: {{ include ".helm.fullname" . }}
-        release: {{ include ".helm.fullname" . }}
-        {{- include ".helm.selectorLabels" . | nindent 8 }}
+        {{- include "commons.labels" . | nindent 8 }}
         {{- toYaml .Values.labels | nindent 8 }}
     spec:
     {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
     {{- end }}
-      serviceAccountName: {{ include ".helm.serviceAccountName" . }}
+      serviceAccountName: {{ include "redirect.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -60,21 +54,21 @@ spec:
               path: /ping
               port: http-metrics
           volumeMounts:
-            - name: {{ include ".helm.fullname" . }}-volume
+            - name: {{ include "commons.fullname" . }}-volume
               mountPath: /etc/redirect/
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
-        - name: {{ include ".helm.fullname" . }}-volume
+        - name: {{ include "commons.fullname" . }}-volume
           configMap:
-            name: {{ include ".helm.fullname" . }}
+            name: {{ include "commons.fullname" . }}
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
               matchExpressions:
-              - key: app
+              - key: appRevision
                 operator: In
                 values:
-                - {{ template ".helm.nameRevision" . }}
+                - {{ template "commons.nameRevision" . }}
             topologyKey: "kubernetes.io/hostname"

@@ -2,11 +2,10 @@
 apiVersion: policy/v1beta1
 kind: PodDisruptionBudget
 metadata:
-  name: {{ template "commento.fullname" . }}-pdb
+  name: {{ template "commons.fullname" . }}
 spec:
   maxUnavailable: 1
   selector:
     matchLabels:
-      app: {{ include "commento.fullname" . }}
-      release: {{ include "commento.fullname" . }}
+      {{- include "commons.selectorLabels" . | nindent 6 }}
 {{ end }}

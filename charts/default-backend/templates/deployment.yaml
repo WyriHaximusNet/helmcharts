@@ -1,20 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "default-backend.fullname" . }}
+  name: {{ template "commons.fullname" . }}
   labels:
-    app: {{ template "default-backend.name" . }}
-    appRevision: {{ template "default-backend.nameRevision" . }}
-    chart: {{ template "default-backend.chart" . }}
-    release: {{ .Release.Name }}
-    releaseRevision: {{ .Release.Revision | quote }}
-    heritage: {{ .Release.Service }}
+    {{- include "commons.labels" . | nindent 4 }}
     app.kubernetes.io/component: controller
 spec:
   selector:
     matchLabels:
-      app: {{ template "default-backend.name" . }}
-      release: {{ .Release.Name }}
+      {{- include "commons.selectorLabels" . | nindent 6 }}
   replicas: {{ .Values.replicas }}
   template:
     metadata:
@@ -22,10 +16,7 @@ spec:
         prometheus.io/scrape: "true"
         prometheus.io/port: "9696"
       labels:
-        app: {{ template "default-backend.name" . }}
-        appRevision: {{ template "default-backend.nameRevision" . }}
-        release: {{ .Release.Name }}
-        releaseRevision: {{ .Release.Revision | quote }}
+        {{- include "commons.labels" . | nindent 8 }}
     spec:
       containers:
         - name: default-backend
@@ -64,5 +55,5 @@ spec:
               - key: appRevision
                 operator: In
                 values:
-                - {{ template "default-backend.nameRevision" . }}
+                - {{ template "commons.nameRevision" . }}
             topologyKey: "kubernetes.io/hostname"

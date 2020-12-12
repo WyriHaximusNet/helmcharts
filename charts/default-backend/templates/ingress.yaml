@@ -1,16 +1,12 @@
 {{- if not (empty .Values.ingress.hosts) -}}
 {{- $chartName := .Chart.Name -}}
-{{- $fullName := include "default-backend.fullname" . -}}
+{{- $fullName := include "commons.fullname" . -}}
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: {{ $fullName }}
   labels:
-    app: {{ template "default-backend.name" . }}
-    chart: {{ template "default-backend.chart" . }}
-    release: {{ .Release.Name }}
-    heritage: {{ .Release.Service }}
-    releaseRevision: {{ .Release.Revision | quote }}
+    {{- include "commons.labels" . | nindent 4 }}
 {{- with .Values.ingress.annotations }}
   annotations:
 {{ toYaml . | indent 4 }}

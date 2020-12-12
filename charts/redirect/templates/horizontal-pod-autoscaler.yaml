@@ -1,3 +1,3 @@
 {{- if .Values.hpa.enable -}}
-{{- include "horizontal-pod-autoscalers.hpa" (dict "name" (include ".helm.fullname" .) "replicas" (dict "min" .Values.replicas "max" .Values.hpa.maxReplicas)) -}}
+{{- include "horizontal-pod-autoscalers.hpa" (dict "name" (include "commons.fullname" .) "replicas" (dict "min" .Values.replicas "max" .Values.hpa.maxReplicas)) -}}
 {{ end }}

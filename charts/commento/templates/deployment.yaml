@@ -1,23 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "commento.fullname" . }}
+  name: {{ template "commons.fullname" . }}
   labels:
-    app: {{ template "commento.name" . }}
-    chart: {{ template "commento.chart" . }}
-    release: {{ .Release.Name }}
-    heritage: {{ .Release.Service }}
+    {{- include "commons.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
-      app: {{ template "commento.name" . }}
-      release: {{ .Release.Name }}
+      {{- include "commons.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: {{ template "commento.name" . }}
-        release: {{ .Release.Name }}
+        {{- include "commons.labels" . | nindent 8 }}
     spec:
       containers:
         - name: commento
