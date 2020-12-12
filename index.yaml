@@ -3,6 +3,27 @@ entries:
   commento:
   - apiVersion: v2
     appVersion: v1.8.0
+    created: "2020-12-12T18:12:40.02047724Z"
+    dependencies:
+    - name: commons
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    - name: horizontal-pod-autoscalers
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.2
+    description: Helm chart to install commento on a kubernetes cluster
+    digest: a33c4b333903c0e4fd058a1726739b10478c53b54ad874953868d9cf1f4d7f79
+    home: https://commento.io/
+    icon: https://cdn.commento.io/images/logo.svg
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: commento
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/commento-0.1.2/commento-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: v1.8.0
     created: "2020-12-09T19:42:21.473465956Z"
     dependencies:
     - name: horizontal-pod-autoscalers
@@ -96,6 +117,32 @@ entries:
     - https://github.com/WyriHaximusNet/helm-charts/releases/download/cron-jobs-0.1.0/cron-jobs-0.1.0.tgz
     version: 0.1.0
   default-backend:
+  - apiVersion: v2
+    appVersion: random
+    created: "2020-12-12T18:12:40.133983022Z"
+    dependencies:
+    - name: commons
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    - name: cron-jobs
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    - name: horizontal-pod-autoscalers
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.2
+    description: A Helm chart for Kubernetes
+    digest: 3714c376ec53a962f5550aca3c52ce6846b0a036213319636baf9da34357898d
+    home: https://github.com/wyrihaximusnet/docker-default-backend
+    icon: https://helm.wyrihaximus.net/images/charts/default-backend.png
+    kubeVersion: ^1.18
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: default-backend
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/default-backend-0.4.3/default-backend-0.4.3.tgz
+    version: 0.4.3
   - apiVersion: v2
     appVersion: random
     created: "2020-12-09T19:42:21.564450157Z"
@@ -256,6 +303,25 @@ entries:
     - https://github.com/WyriHaximusNet/helm-charts/releases/download/default-backend-0.1.0/default-backend-0.1.0.tgz
     version: 0.1.0
   docker-hub-exporter:
+  - apiVersion: v2
+    appVersion: d05df48
+    created: "2020-12-12T18:12:40.249322906Z"
+    dependencies:
+    - name: commons
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    description: Docker Hub Exporter
+    digest: 3fe9b87438132dc9500410fc9da324febd889b9b7e6c26c9bcc5da474b60aa0e
+    home: https://github.com/jessestuart/docker-hub-exporter
+    icon: https://helm.wyrihaximus.net/images/charts/docker-hub-exporter.png
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: docker-hub-exporter
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/docker-hub-exporter-0.5.3/docker-hub-exporter-0.5.3.tgz
+    version: 0.5.3
   - apiVersion: v2
     appVersion: d05df48
     created: "2020-10-11T17:17:14.505623585Z"
@@ -454,6 +520,25 @@ entries:
   pi-hole-exporter:
   - apiVersion: v2
     appVersion: d05df48
+    created: "2020-12-12T18:12:40.357827785Z"
+    dependencies:
+    - name: commons
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    description: Pi-Hole Exporter
+    digest: 95f096ddaad79531857fe9ad3fad10fb96b52b59e8d259ee2a56b78ab0d448fc
+    home: https://github.com/eko/pihole-exporter
+    icon: https://helm.wyrihaximus.net/images/charts/pi-hole-exporter.png
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: pi-hole-exporter
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/pi-hole-exporter-0.1.1/pi-hole-exporter-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: d05df48
     created: "2020-11-13T17:35:46.558215111Z"
     description: Pi-Hole Exporter
     digest: f962d4cb71a9f7415445f53fd1eda2119b228d7a3ba023616fd276269f158b24
@@ -468,6 +553,32 @@ entries:
     - https://github.com/WyriHaximusNet/helm-charts/releases/download/pi-hole-exporter-0.1.0/pi-hole-exporter-0.1.0.tgz
     version: 0.1.0
   redirect:
+  - apiVersion: v2
+    appVersion: random
+    created: "2020-12-12T18:12:40.455347056Z"
+    dependencies:
+    - name: commons
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    - name: cron-jobs
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    - name: horizontal-pod-autoscalers
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.2
+    description: Redirect
+    digest: 9b7668f8f5e6c2dcb8b8aa7691979cabd3d9382dd6e2795ea7261706035f9bdb
+    home: https://github.com/wyrihaximusnet/docker-redirect
+    icon: https://helm.wyrihaximus.net/images/charts/redirect.png
+    kubeVersion: ^1.18
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: redirect
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/redirect-0.9.3/redirect-0.9.3.tgz
+    version: 0.9.3
   - apiVersion: v2
     appVersion: random
     created: "2020-12-09T19:42:21.657549667Z"
@@ -850,6 +961,25 @@ entries:
     - https://github.com/WyriHaximusNet/helm-charts/releases/download/redirect-0.0.2/redirect-0.0.2.tgz
     version: 0.0.2
   redis-db-assignment-operator:
+  - apiVersion: v2
+    appVersion: v1.0.1
+    created: "2020-12-12T18:12:40.54358272Z"
+    dependencies:
+    - name: commons
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    description: Redis Database Assignment Operator
+    digest: c5e1cbd3b5ce2e06b7be64fa76d2b88eb884069eb9e572e8eeed6aa20843ab34
+    home: https://github.com/WyriHaximusNet/docker-kubernetes-redis-db-assignment-operator
+    icon: https://helm.wyrihaximus.net/images/charts/redis-db-assignment-operator.png
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: redis-db-assignment-operator
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/redis-db-assignment-operator-1.0.3/redis-db-assignment-operator-1.0.3.tgz
+    version: 1.0.3
   - apiVersion: v2
     appVersion: v1.0.1
     created: "2020-11-02T00:14:21.332938666Z"
