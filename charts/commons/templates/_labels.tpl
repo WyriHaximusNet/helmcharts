@@ -9,6 +9,7 @@ app.kubernetes.io/name: {{ template "commons.name" . }}
 app.kubernetes.io/version: {{ .Chart.Version | quote }}
 appRevision: {{ template "commons.nameRevision" . }}
 chart: {{ template "commons.chart" . }}
+helm.sh/chart: {{ template "commons.chart" . }}
 release: {{ .Release.Name }}
 releaseRevision: {{ .Release.Revision | quote }}
 heritage: {{ .Release.Service }}
