@@ -7,5 +7,6 @@ spec:
   minAvailable: 1
   selector:
     matchLabels:
-      {{- include "commons.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/name: {{ include "commons.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
 {{ end }}
