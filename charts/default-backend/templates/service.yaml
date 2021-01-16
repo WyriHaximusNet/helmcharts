@@ -16,4 +16,5 @@ spec:
       protocol: TCP
       name: metrics
   selector:
-    {{- include "commons.selectorLabels" . | nindent 6 }}
+    app: {{ template "commons.name" . }}
+    release: {{ .Release.Name }}

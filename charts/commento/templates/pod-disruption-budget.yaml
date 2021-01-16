@@ -7,5 +7,6 @@ spec:
   maxUnavailable: 1
   selector:
     matchLabels:
-      {{- include "commons.selectorLabels" . | nindent 6 }}
+      app: {{ template "commons.name" . }}
+      release: {{ .Release.Name }}
 {{ end }}

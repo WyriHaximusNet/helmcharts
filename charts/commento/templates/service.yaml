@@ -12,4 +12,5 @@ spec:
       protocol: TCP
       name: commento
   selector:
-    {{- include "commons.selectorLabels" . | nindent 6 }}
+    app: {{ template "commons.name" . }}
+    release: {{ .Release.Name }}

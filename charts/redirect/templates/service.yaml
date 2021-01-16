@@ -16,4 +16,5 @@ spec:
       protocol: TCP
       name: http-metrics
   selector:
-    {{- include "commons.selectorLabels" . | nindent 4 }}
+    app.kubernetes.io/name: {{ include "commons.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
