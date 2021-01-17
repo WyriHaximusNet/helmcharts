@@ -40,14 +40,14 @@ jobs:
           chart: postgresql
           helm: 'helm' # optional, default value is 'helm'
           args: '--wait --timeout 2m' #optional, default value is '--wait --timeout 2m' in order to wait for the chart-install to stabilize into ready state
-      - name: Get PG passowrd
-        id: postgresql_passowrd
+      - name: Get PG password
+        id: postgresql_password
         run: |
           echo ::set-output name=password::$(echo "$(kubectl get secret --namespace default postgresql-helm-charts-${{ github.run_number }} -o jsonpath="{.data.postgresql-password}" | base64 --decode)")
       - name: Create postgresql URL
         id: postgresql
         run: |
-          echo ::set-output name=url::$(echo "postgresql://postgres:${{ steps.postgresql_passowrd.outputs.password }}@postgresql-helm-charts-${{ github.run_number }}.default/postgres")
+          echo ::set-output name=url::$(echo "postgresql://postgres:${{ steps.postgresql_password.outputs.password }}@postgresql-helm-charts-${{ github.run_number }}.default/postgres")
       - name: Prepare library charts
         run: |
           cp charts/commons/library-ci/*.yaml charts/commons/templates/
