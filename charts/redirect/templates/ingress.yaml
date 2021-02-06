@@ -2,7 +2,7 @@
 {{- $hosts := concat (.Values.redirect.ingressHosts | mustDeepCopy) (.Values.redirect.hosts | mustDeepCopy | keys) -}}
 {{- range $host := ($hosts | uniq) }}
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ $fullName }}-{{ $host  | replace "." "-" }}
