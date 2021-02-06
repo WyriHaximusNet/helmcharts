@@ -18,9 +18,12 @@ Host rule
   http:
     paths:
       - path: /
+        pathType: Prefix
         backend:
-          serviceName: {{ .FullName }}
-          servicePort: {{ .SvcPort }}
+          service:
+            name: {{ .FullName }}
+            port:
+              number: {{ .SvcPort }}
 {{- end -}}
 
 {{/*
