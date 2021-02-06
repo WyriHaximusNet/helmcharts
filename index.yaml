@@ -654,6 +654,32 @@ entries:
   redirect:
   - apiVersion: v2
     appVersion: random
+    created: "2021-02-06T20:31:27.362536873Z"
+    dependencies:
+    - name: commons
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    - name: cron-jobs
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    - name: horizontal-pod-autoscalers
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.2
+    description: Redirect
+    digest: c2a4926fa778497d113a1941ee5ec7a298b880784d65842c6c0a0796293d2507
+    home: https://github.com/wyrihaximusnet/docker-redirect
+    icon: https://helm.wyrihaximus.net/images/charts/redirect.png
+    kubeVersion: ^1.18
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: redirect
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/redirect-0.9.5/redirect-0.9.5.tgz
+    version: 0.9.5
+  - apiVersion: v2
+    appVersion: random
     created: "2021-01-16T21:34:59.677894993Z"
     dependencies:
     - name: commons
