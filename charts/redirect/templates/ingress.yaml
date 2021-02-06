@@ -1,44 +1,20 @@
 {{- $fullName := include "commons.fullname" . -}}
-{{- $hosts := .Values.redirect.hosts -}}
-{{- $ingressHosts := .Values.redirect.ingressHosts -}}
+{{- $hosts := concat (.Values.redirect.ingressHosts | mustDeepCopy) (.Values.redirect.hosts | mustDeepCopy | keys) -}}
+{{- range $host := ($hosts | uniq) }}
+---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: {{ $fullName }}
+  name: {{ $fullName }}-{{ $host  | replace "." "-" }}
   labels:
-    {{- include "commons.labels" . | nindent 4 }}
-  {{- with .Values.ingress.annotations }}
+    {{- include "commons.labels" $ | nindent 4 }}
+  {{- with $.Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
   tls:
-  {{- if $hosts -}}
-    {{- range $hostFrom, $hostTo := $hosts }}
-      {{- $host := dict "Host" $hostFrom -}}
-      {{ include "redirect.hostTLS" $host | nindent 4 }}
-    {{- end }}
-  {{- end }}
-  {{- if $ingressHosts -}}
-    {{- range $host := $ingressHosts }}
-      {{- if eq (hasKey $hosts $host) false -}}
-        {{- $host := dict "Host" $host -}}
-        {{ include "redirect.hostTLS" $host | nindent 4 }}
-      {{- end }}
-    {{- end }}
-  {{- end }}
+    {{ include "redirect.hostTLS" (dict "Host" $host) | nindent 4 }}
   rules:
-  {{- if $hosts -}}
-    {{- range $hostFrom, $hostTo := $hosts }}
-      {{- $host := dict "Host" $hostFrom "FullName" $fullName "SvcPort" 7132 -}}
-      {{ include "redirect.hostRule" $host | nindent 4 }}
-    {{- end }}
-  {{- end }}
-  {{- if $ingressHosts -}}
-    {{- range $host := $ingressHosts }}
-      {{- if eq (hasKey $hosts $host) false -}}
-        {{- $host := dict "Host" $host "FullName" $fullName "SvcPort" 7132 -}}
-        {{ include "redirect.hostRule" $host | nindent 4 }}
-      {{- end }}
-    {{- end }}
-  {{- end }}
+    {{ include "redirect.hostRule" (dict "Host" $host "FullName" $fullName "SvcPort" 7132) | nindent 4 }}
+{{- end }}
