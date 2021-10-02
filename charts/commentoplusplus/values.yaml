@@ -1,0 +1,48 @@
+replicas: 2
+
+application:
+  forbidNewOwners: true
+
+database:
+  urlSuffix: "?"
+  manual: "postgresql://postgres:postgres@postgres/postgres"
+  secret:
+    enable: false
+    key: key
+    secret: secret
+  movetokube:
+    enable: false
+    name: commento       # Name of database created in PostgreSQL
+    dropOnDelete: false  # Set to true if you want the operator to drop the database and role when this CR is deleted (optional)
+
+secrets: []
+#  - auth-github
+#  - auth-twitter
+# See the secrets directory for several examples on added additional auth secrets
+
+image:
+  repository: caroga/commentoplusplus
+  tag: v1.8.6
+  pullPolicy: IfNotPresent
+
+ingress:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+  host: comments.YOURDOMAIN.TLD
+
+resources:
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  limits:
+    cpu: 1
+    memory: 64Mi
+  requests:
+    cpu: 100m
+    memory: 64Mi
+
+hpa:
+  enable: false
+  maxReplicas: 1024
