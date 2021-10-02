@@ -39,7 +39,7 @@ jobs:
           repo: https://charts.bitnami.com/bitnami
           chart: postgresql
           helm: 'helm' # optional, default value is 'helm'
-          args: '--wait --timeout 2m' #optional, default value is '--wait --timeout 2m' in order to wait for the chart-install to stabilize into ready state
+          args: '--wait --timeout 2m --version 10.3.1' #optional, default value is '--wait --timeout 2m' in order to wait for the chart-install to stabilize into ready state
       - name: Get PG password
         id: postgresql_password
         run: |
