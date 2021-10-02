@@ -7,8 +7,8 @@ container:
     - -c
     - kubectl delete pod $(kubectl get pods --selector=app=[[app]] --selector=release=[[release]] -n [[namespace]]  --sort-by=.status.startTime --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}' | head -n 1) -n [[namespace]]
 image:
-  repository: bitnami/kubectl
-  tag: 1.19
+  repository: raspbernetes/kubectl
+  tag: 1.18.2
   pullPolicy: IfNotPresent
 spec:
   serviceAccountName: [[fullname]]-recycle-cronjob
