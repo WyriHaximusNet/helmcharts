@@ -176,6 +176,32 @@ entries:
   default-backend:
   - apiVersion: v2
     appVersion: random
+    created: "2021-10-02T16:10:16.418998747Z"
+    dependencies:
+    - name: commons
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    - name: cron-jobs
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    - name: horizontal-pod-autoscalers
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.2
+    description: A Helm chart for Kubernetes
+    digest: fd34323699663e2e7ad228989f02e8228cc88dcaa8ca9b04ee38dbed9a0b87f2
+    home: https://github.com/wyrihaximusnet/docker-default-backend
+    icon: https://helm.wyrihaximus.net/images/charts/default-backend.png
+    kubeVersion: ^1.19
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: default-backend
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/default-backend-0.5.1/default-backend-0.5.1.tgz
+    version: 0.5.1
+  - apiVersion: v2
+    appVersion: random
     created: "2021-02-06T21:16:26.53970682Z"
     dependencies:
     - name: commons
@@ -700,6 +726,32 @@ entries:
     - https://github.com/WyriHaximusNet/helm-charts/releases/download/pi-hole-exporter-0.1.0/pi-hole-exporter-0.1.0.tgz
     version: 0.1.0
   redirect:
+  - apiVersion: v2
+    appVersion: random
+    created: "2021-10-02T16:10:16.515242225Z"
+    dependencies:
+    - name: commons
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    - name: cron-jobs
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    - name: horizontal-pod-autoscalers
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.2
+    description: Redirect
+    digest: 21d3b9e1ac91d2bcc85df02644b1a54b3b4fbe740c49d996a71c2b5b647d285a
+    home: https://github.com/wyrihaximusnet/docker-redirect
+    icon: https://helm.wyrihaximus.net/images/charts/redirect.png
+    kubeVersion: ^1.19
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: redirect
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/redirect-0.10.1/redirect-0.10.1.tgz
+    version: 0.10.1
   - apiVersion: v2
     appVersion: random
     created: "2021-02-06T21:16:26.607996873Z"
