@@ -1,0 +1,30 @@
+{{- if eq (eq .Values.ingress.host "comments.YOURDOMAIN.TLD") false }}
+{{- $chartName := .Chart.Name -}}
+{{- $fullName := include "commons.fullname" . -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ $fullName }}
+  labels:
+    {{- include "commons.labels" . | nindent 4 }}
+{{- with .Values.ingress.annotations }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}
+spec:
+  tls:
+    - hosts:
+        - {{ .Values.ingress.host }}
+      secretName: tls-{{ .Values.ingress.host | replace "." "-" }}
+  rules:
+    - host: {{ .Values.ingress.host }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ $fullName }}
+                port:
+                  name: commento
+{{- end }}

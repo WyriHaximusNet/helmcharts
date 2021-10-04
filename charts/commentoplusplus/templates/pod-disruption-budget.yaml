@@ -1,0 +1,12 @@
+{{- if gt (.Values.replicas | int) 1 -}}
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ template "commons.fullname" . }}
+spec:
+  maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: {{ template "commons.name" . }}
+      release: {{ .Release.Name }}
+{{ end }}

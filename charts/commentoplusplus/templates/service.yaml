@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "commons.fullname" . }}
+  labels:
+    {{- include "commons.labels" . | nindent 4 }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8967
+      targetPort: 8967
+      protocol: TCP
+      name: commento
+  selector:
+    app: {{ template "commons.name" . }}
+    release: {{ .Release.Name }}

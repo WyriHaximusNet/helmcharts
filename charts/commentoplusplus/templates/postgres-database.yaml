@@ -1,0 +1,13 @@
+{{- if .Values.database.movetokube.enable -}}
+apiVersion: db.movetokube.com/v1alpha1
+kind: Postgres
+metadata:
+  name: {{ .Values.database.movetokube.name }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  database: {{ .Values.database.movetokube.name }}
+  dropOnDelete: {{ .Values.database.movetokube.dropOnDelete }}
+  masterRole: {{ .Values.database.movetokube.name }}-group
+  extensions:
+    - pgcrypto
+{{ end }}

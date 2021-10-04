@@ -1,0 +1,12 @@
+{{- if .Values.database.movetokube.enable -}}
+apiVersion: db.movetokube.com/v1alpha1
+kind: PostgresUser
+metadata:
+  name: {{ .Values.database.movetokube.name }}-user
+  namespace: {{ .Release.Namespace }}
+spec:
+  role: {{ .Values.database.movetokube.name }}-role
+  database: {{ .Values.database.movetokube.name }} # This references the Postgres CR
+  secretName: {{ .Values.database.movetokube.name }}-postgres-credentials
+  privileges: OWNER # Can be OWNER/READ/WRITE
+{{ end }}

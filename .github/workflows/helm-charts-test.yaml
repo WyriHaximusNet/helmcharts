@@ -56,6 +56,8 @@ jobs:
           cp charts/pi-hole-exporter/library-ci/*.yaml charts/pi-hole-exporter/templates/
           sed -i '$ d' charts/commento/ci/postgresql-values.yaml
           echo -e "  manual: \"${{ steps.postgresql.outputs.url }}\"\r\n" >> charts/commento/ci/postgresql-values.yaml
+          sed -i '$ d' charts/commentoplusplus/ci/postgresql-values.yaml
+          echo -e "  manual: \"${{ steps.postgresql.outputs.url }}\"\r\n" >> charts/commentoplusplus/ci/postgresql-values.yaml
           sed -i 's/library/application/g' charts/commons/Chart.yaml
           sed -i 's/library/application/g' charts/cron-jobs/Chart.yaml
           sed -i 's/library/application/g' charts/horizontal-pod-autoscalers/Chart.yaml
