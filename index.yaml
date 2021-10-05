@@ -3,6 +3,29 @@ entries:
   commento:
   - apiVersion: v2
     appVersion: v1.8.0
+    created: "2021-10-05T21:40:03.140608199Z"
+    dependencies:
+    - name: commons
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    - name: horizontal-pod-autoscalers
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.2
+    deprecated: true
+    description: Helm chart to install commento on a kubernetes cluster
+    digest: 4d5f422766c692ed76e38072ffc6ec16ae18acd4231cd4f53cf9a245178cb6d3
+    home: https://commento.io/
+    icon: https://cdn.commento.io/images/logo.svg
+    kubeVersion: ^1.19
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: commento
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/commento-0.2.1/commento-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: v1.8.0
     created: "2021-02-06T21:16:26.459277715Z"
     dependencies:
     - name: commons
@@ -101,6 +124,29 @@ entries:
     urls:
     - https://github.com/WyriHaximusNet/helm-charts/releases/download/commento-0.1.0/commento-0.1.0.tgz
     version: 0.1.0
+  commentoplusplus:
+  - apiVersion: v2
+    appVersion: v1.8.0
+    created: "2021-10-05T21:40:03.381577706Z"
+    dependencies:
+    - name: commons
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    - name: horizontal-pod-autoscalers
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.2
+    description: Helm chart to install commento on a kubernetes cluster
+    digest: 1413b014f13f37e0ca0088703fd3df4f5989839185b823f3159a59e584d471fe
+    home: https://github.com/souramoo/commentoplusplus/
+    icon: https://cdn.commento.io/images/logo.svg
+    kubeVersion: ^1.19
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: commentoplusplus
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/commentoplusplus-0.2.0/commentoplusplus-0.2.0.tgz
+    version: 0.2.0
   commons:
   - apiVersion: v2
     created: "2021-01-16T16:21:00.861823432Z"
