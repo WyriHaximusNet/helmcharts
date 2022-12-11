@@ -61,6 +61,8 @@ jobs:
           sed -i 's/library/application/g' charts/commons/Chart.yaml
           sed -i 's/library/application/g' charts/cron-jobs/Chart.yaml
           sed -i 's/library/application/g' charts/horizontal-pod-autoscalers/Chart.yaml
+          rm -Rf charts/commento
+          rm -Rf charts/commentoplusplus
       - name: Test charts
         uses: helm/chart-testing-action@v1.0.0
         with:
