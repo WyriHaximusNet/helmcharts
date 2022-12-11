@@ -1286,6 +1286,25 @@ entries:
   redis-db-assignment-operator:
   - apiVersion: v2
     appVersion: v1.0.1
+    created: "2022-12-11T19:40:58.704617763Z"
+    dependencies:
+    - name: commons
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    description: Redis Database Assignment Operator
+    digest: 65c5fc0d4a11d5a3dde3233969cd36569803442576106faaadf0cda1b3bc35a5
+    home: https://github.com/WyriHaximusNet/docker-kubernetes-redis-db-assignment-operator
+    icon: https://helm.wyrihaximus.net/images/charts/redis-db-assignment-operator.png
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: redis-db-assignment-operator
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/redis-db-assignment-operator-1.0.6/redis-db-assignment-operator-1.0.6.tgz
+    version: 1.0.6
+  - apiVersion: v2
+    appVersion: v1.0.1
     created: "2021-01-16T21:57:09.119664446Z"
     dependencies:
     - name: commons
