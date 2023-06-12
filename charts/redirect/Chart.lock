@@ -1,12 +1,12 @@
 dependencies:
 - name: commons
   repository: https://helm.wyrihaximus.net/
-  version: 0.1.0
+  version: 0.1.1
 - name: cron-jobs
   repository: https://helm.wyrihaximus.net/
-  version: 0.1.2
+  version: 1.0.0
 - name: horizontal-pod-autoscalers
   repository: https://helm.wyrihaximus.net/
-  version: 0.2.0
-digest: sha256:9311081e2d53beca7cf5d1bf74a8f755085bbaafec6c1ae2efee4afd6c1b30a5
-generated: "2020-12-11T00:18:29.908368+01:00"
+  version: 1.0.0
+digest: sha256:492cac28e956056ef46364a8d6dc10fa34cb5e3be1e4e458a9fa26644973e2f8
+generated: "2023-07-25T12:41:04.223706377+02:00"
