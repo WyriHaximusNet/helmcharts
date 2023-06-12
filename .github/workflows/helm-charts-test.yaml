@@ -22,6 +22,15 @@ jobs:
   test:
     runs-on: ubuntu-latest
     needs: lint
+    strategy:
+      fail-fast: false
+      matrix:
+        k8s:
+          - "1.23"
+          - "1.24"
+          - "1.25"
+          - "1.26"
+          - "1.27"
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -33,6 +42,7 @@ jobs:
         uses: helm/kind-action@v1.7.0
         with:
           installLocalPathProvisioner: true # Only build a kind cluster if there are chart changes to test.
+          node_image: "kindest/node:v${{ matrix.k8s }}.0"
 
       - name: Install postgresql
         uses: evryfs/helm-ephemeral-action@v0.2.5
