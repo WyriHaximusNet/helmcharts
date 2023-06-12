@@ -11,12 +11,13 @@ jobs:
 
       - name: Fetch history
         run: git fetch --prune --unshallow
+      - name: Install Chart Tester
+        uses: helm/chart-testing-action@v2.4.0
+      - name: Add WyriHaximusNet repo
+        run: helm repo add WyriHaximusNet https://helm.wyrihaximus.net/
       - name: Lint charts
         id: lint
-        uses: helm/chart-testing-action@v2.4.0
-        with:
-          command: lint
-          config: ct.yaml
+        run: ct lint --all
 
   test:
     runs-on: ubuntu-latest
@@ -59,11 +60,13 @@ jobs:
           sed -i '$ d' charts/commentoplusplus/ci/postgresql-values.yaml
           echo -e "  manual: \"${{ steps.postgresql.outputs.url }}\"\r\n" >> charts/commentoplusplus/ci/postgresql-values.yaml
           sed -i 's/library/application/g' charts/commons/Chart.yaml
-          sed -i 's/library/application/g' charts/cron-jobs/Chart.yaml
-          sed -i 's/library/application/g' charts/horizontal-pod-autoscalers/Chart.yaml
           rm -Rf charts/commento
           rm -Rf charts/commentoplusplus
-      - name: Test charts
+#          sed -i 's/library/application/g' charts/cron-jobs/Chart.yaml
+#          sed -i 's/library/application/g' charts/horizontal-pod-autoscalers/Chart.yaml
+      - name: Add WyriHaximusNet repo
+        run: helm repo add WyriHaximusNet https://helm.wyrihaximus.net/
+      - name: Install Chart Tester
         uses: helm/chart-testing-action@v2.4.0
-        with:
-          command: install
+      - name: Test charts
+        run: ct install
