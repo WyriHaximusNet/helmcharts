@@ -4,8 +4,8 @@ description: Horizontal Pod Autoscalers library
 home: https://github.com/wyrihaximusnet/helm-charts
 icon: https://helm.wyrihaximus.net/images/charts/horizontal-pod-autoscalers.png
 type: library
-version: 0.2.0
-kubeVersion: ^1.18
+version: 1.0.0
+kubeVersion: ^1.23
 maintainers:
   - name: WyriHaximus
     email: helm@wyrihaximus.net
