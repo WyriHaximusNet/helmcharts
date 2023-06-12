@@ -3,6 +3,26 @@ entries:
   commento:
   - apiVersion: v2
     appVersion: v1.8.0
+    created: "2023-06-12T18:20:13.92948632Z"
+    dependencies:
+    - name: commons
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    - name: horizontal-pod-autoscalers
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.2
+    deprecated: true
+    description: Helm chart to install commento on a kubernetes cluster
+    digest: ea0f47740ede18633c2abed49690ca6762173990b36ed52f8ff3157d34bda4e1
+    home: https://commento.io/
+    icon: https://cdn.commento.io/images/logo.svg
+    kubeVersion: ^1.19
+    name: commento
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/commento-0.2.2/commento-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v2
+    appVersion: v1.8.0
     created: "2021-10-05T21:40:03.140608199Z"
     dependencies:
     - name: commons
