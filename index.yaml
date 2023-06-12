@@ -146,6 +146,28 @@ entries:
     version: 0.1.0
   commentoplusplus:
   - apiVersion: v2
+    appVersion: v1.8.7
+    created: "2023-06-12T21:38:26.874960995Z"
+    dependencies:
+    - name: commons
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    - name: horizontal-pod-autoscalers
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.2
+    description: Helm chart to install commento on a kubernetes cluster
+    digest: c3c48c060df26f8026b1358462678b0314931bf8aaab529615e0e4eaffa0c51b
+    home: https://github.com/souramoo/commentoplusplus/
+    icon: https://cdn.commento.io/images/logo.svg
+    kubeVersion: ^1.19
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: commentoplusplus
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/commentoplusplus-0.2.1/commentoplusplus-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
     appVersion: v1.8.0
     created: "2021-10-05T21:40:03.381577706Z"
     dependencies:
@@ -197,6 +219,21 @@ entries:
     - https://github.com/WyriHaximusNet/helm-charts/releases/download/commons-0.1.0/commons-0.1.0.tgz
     version: 0.1.0
   cron-jobs:
+  - apiVersion: v2
+    created: "2023-06-12T21:38:27.010308414Z"
+    description: CronJobs library
+    digest: 2029b93ed8511c733dd44ac5a4390b472a4ba94da9b8d7231fe64a8606a6980e
+    home: https://github.com/wyrihaximusnet/helm-charts
+    icon: https://helm.wyrihaximus.net/images/charts/cron-jobs.png
+    kubeVersion: '>= 1.21'
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: cron-jobs
+    type: library
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/cron-jobs-1.0.0/cron-jobs-1.0.0.tgz
+    version: 1.0.0
   - apiVersion: v2
     created: "2020-10-12T20:45:13.84577352Z"
     description: CronJobs library
@@ -708,6 +745,21 @@ entries:
     - https://github.com/WyriHaximusNet/helm-charts/releases/download/docker-hub-exporter-0.1.0/docker-hub-exporter-0.1.0.tgz
     version: 0.1.0
   horizontal-pod-autoscalers:
+  - apiVersion: v2
+    created: "2023-06-12T21:38:27.141214899Z"
+    description: Horizontal Pod Autoscalers library
+    digest: 60be5de81bdead85cd4a24e49985fc33c49661d4eec3cc3c7e539d4225839773
+    home: https://github.com/wyrihaximusnet/helm-charts
+    icon: https://helm.wyrihaximus.net/images/charts/horizontal-pod-autoscalers.png
+    kubeVersion: ^1.23
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: horizontal-pod-autoscalers
+    type: library
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/horizontal-pod-autoscalers-1.0.0/horizontal-pod-autoscalers-1.0.0.tgz
+    version: 1.0.0
   - apiVersion: v2
     created: "2020-10-21T18:32:51.913839314Z"
     description: Horizontal Pod Autoscalers library
@@ -1425,4 +1477,4 @@ entries:
     urls:
     - https://github.com/WyriHaximusNet/helm-charts/releases/download/redis-db-assignment-operator-1.0.0/redis-db-assignment-operator-1.0.0.tgz
     version: 1.0.0
-generated: "2020-04-08T16:48:41.058035326Z"
+generated: "2023-06-12T21:38:27.141652542Z"
