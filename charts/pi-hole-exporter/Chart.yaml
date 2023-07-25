@@ -4,7 +4,7 @@ description: Pi-Hole Exporter
 home: https://github.com/eko/pihole-exporter
 icon: https://helm.wyrihaximus.net/images/charts/pi-hole-exporter.png
 type: application
-version: 0.1.2
+version: 0.1.3
 appVersion: d05df48
 maintainers:
   - name: WyriHaximus
