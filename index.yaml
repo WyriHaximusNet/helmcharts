@@ -147,6 +147,28 @@ entries:
   commentoplusplus:
   - apiVersion: v2
     appVersion: v1.8.7
+    created: "2023-07-25T10:48:41.799840369Z"
+    dependencies:
+    - name: commons
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    - name: horizontal-pod-autoscalers
+      repository: https://helm.wyrihaximus.net/
+      version: ^1
+    description: Helm chart to install commento on a kubernetes cluster
+    digest: 0c6b58d7461ffbc6137116420cc411123c13b6d5050ea8f4597cb4686cbb16f2
+    home: https://github.com/souramoo/commentoplusplus/
+    icon: https://cdn.commento.io/images/logo.svg
+    kubeVersion: ^1.23
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: commentoplusplus
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/commentoplusplus-0.3.0/commentoplusplus-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
+    appVersion: v1.8.7
     created: "2023-06-12T21:38:26.874960995Z"
     dependencies:
     - name: commons
@@ -277,6 +299,32 @@ entries:
     - https://github.com/WyriHaximusNet/helm-charts/releases/download/cron-jobs-0.1.0/cron-jobs-0.1.0.tgz
     version: 0.1.0
   default-backend:
+  - apiVersion: v2
+    appVersion: random
+    created: "2023-07-25T10:48:41.915338538Z"
+    dependencies:
+    - name: commons
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    - name: cron-jobs
+      repository: https://helm.wyrihaximus.net/
+      version: ^1
+    - name: horizontal-pod-autoscalers
+      repository: https://helm.wyrihaximus.net/
+      version: ^1
+    description: A Helm chart for Kubernetes
+    digest: 05225e5b6351bfdb830b1b1e73e04f594339ef9c84edb1372199b2521bf04215
+    home: https://github.com/wyrihaximusnet/docker-default-backend
+    icon: https://helm.wyrihaximus.net/images/charts/default-backend.png
+    kubeVersion: ^1.23
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: default-backend
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/default-backend-1.0.0/default-backend-1.0.0.tgz
+    version: 1.0.0
   - apiVersion: v2
     appVersion: random
     created: "2021-10-02T16:10:16.418998747Z"
@@ -844,6 +892,32 @@ entries:
     - https://github.com/WyriHaximusNet/helm-charts/releases/download/pi-hole-exporter-0.1.0/pi-hole-exporter-0.1.0.tgz
     version: 0.1.0
   redirect:
+  - apiVersion: v2
+    appVersion: random
+    created: "2023-07-25T10:48:42.01828528Z"
+    dependencies:
+    - name: commons
+      repository: https://helm.wyrihaximus.net/
+      version: ^0.1
+    - name: cron-jobs
+      repository: https://helm.wyrihaximus.net/
+      version: ^1
+    - name: horizontal-pod-autoscalers
+      repository: https://helm.wyrihaximus.net/
+      version: ^1
+    description: Redirect
+    digest: 0c7c503f93c4cf51c9ba2f4c235d06ef608096b48df2102bfac6092b9e559ba3
+    home: https://github.com/wyrihaximusnet/docker-redirect
+    icon: https://helm.wyrihaximus.net/images/charts/redirect.png
+    kubeVersion: ^1.23
+    maintainers:
+    - email: helm@wyrihaximus.net
+      name: WyriHaximus
+    name: redirect
+    type: application
+    urls:
+    - https://github.com/WyriHaximusNet/helm-charts/releases/download/redirect-1.0.0/redirect-1.0.0.tgz
+    version: 1.0.0
   - apiVersion: v2
     appVersion: random
     created: "2021-10-02T16:10:16.515242225Z"
@@ -1477,4 +1551,4 @@ entries:
     urls:
     - https://github.com/WyriHaximusNet/helm-charts/releases/download/redis-db-assignment-operator-1.0.0/redis-db-assignment-operator-1.0.0.tgz
     version: 1.0.0
-generated: "2023-06-12T21:38:27.141652542Z"
+generated: "2023-07-25T10:48:42.018745684Z"
