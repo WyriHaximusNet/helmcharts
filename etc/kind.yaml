@@ -22,3 +22,10 @@ nodes:
         nodeRegistration:
           kubeletExtraArgs:
             node-labels: "wyrihaximus.net/type=ingress"
+  - role: worker
+    kubeadmConfigPatches:
+      - |
+        kind: JoinConfiguration
+        nodeRegistration:
+          kubeletExtraArgs:
+            node-labels: "wyrihaximus.net/type=poen"
