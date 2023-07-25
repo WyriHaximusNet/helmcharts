@@ -4,8 +4,8 @@ description: Helm chart to install commento on a kubernetes cluster
 home: https://github.com/souramoo/commentoplusplus/
 icon: https://cdn.commento.io/images/logo.svg
 name: commentoplusplus
-version: 0.2.1
-kubeVersion: ^1.19
+version: 0.3.0
+kubeVersion: ^1.23
 maintainers:
   - name: WyriHaximus
     email: helm@wyrihaximus.net
@@ -14,5 +14,5 @@ dependencies:
     version: ^0.1
     repository: https://helm.wyrihaximus.net/
   - name: horizontal-pod-autoscalers
-    version: ^0.2
+    version: ^1
     repository: https://helm.wyrihaximus.net/
