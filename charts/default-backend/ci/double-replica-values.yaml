@@ -1,0 +1,7 @@
+replicas: 2
+
+cron:
+  replaceOldestPodHourly: true
+
+hpa:
+  enable: true

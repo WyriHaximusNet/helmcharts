@@ -1,0 +1,10 @@
+replicas: 3
+
+cron:
+  replaceOldestPodWeekly: false
+
+hpa:
+  enable: true
+
+redirect:
+  enforceHttps: false
