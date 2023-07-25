@@ -4,7 +4,7 @@ description: A Helm chart for Kubernetes
 home: https://github.com/wyrihaximusnet/docker-default-backend
 icon: https://helm.wyrihaximus.net/images/charts/default-backend.png
 type: application
-version: 1.0.0
+version: 1.1.0
 kubeVersion: ^1.23
 appVersion: random
 maintainers:
