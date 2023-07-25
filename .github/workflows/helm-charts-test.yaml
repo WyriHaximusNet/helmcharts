@@ -43,7 +43,8 @@ jobs:
         with:
           installLocalPathProvisioner: true # Only build a kind cluster if there are chart changes to test.
           node_image: "kindest/node:v${{ matrix.k8s }}.0"
-
+          config: etc/kind.yaml
+      - run: kubectl get nodes
       - name: Install postgresql
         uses: evryfs/helm-ephemeral-action@v0.2.5
         with:
