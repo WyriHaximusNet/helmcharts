@@ -53,6 +53,7 @@ jobs:
       - run: kubectl get svc -A
       - name: Install PiHole
         uses: evryfs/helm-ephemeral-action@v0.2.5
+        id: helm-pihole
         with:
           repo: https://mojo2600.github.io/pihole-kubernetes/
           chart: pihole
@@ -63,9 +64,10 @@ jobs:
       - name: Create postgresql URL
         id: pihole
         run: |
-          echo ::set-output name=hostname::$(echo "pihole-helm-charts-${{ github.run_number }}-web.default" | base64)
+          echo ::set-output name=hostname::$(echo "${{ steps.helm-pihole.outputs.releaseName }}-web.default" | base64)
       - name: Install postgresql
         uses: evryfs/helm-ephemeral-action@v0.2.5
+        id: helm-postgresql
         with:
           repo: https://charts.bitnami.com/bitnami
           chart: postgresql
@@ -80,7 +82,7 @@ jobs:
       - name: Create postgresql URL
         id: postgresql
         run: |
-          echo ::set-output name=url::$(echo "postgresql://postgres:${{ steps.postgresql_password.outputs.password }}@postgresql-helm-charts-${{ github.run_number }}.default/postgres")
+          echo ::set-output name=url::$(echo "postgresql://postgres:${{ steps.postgresql_password.outputs.password }}@${{ steps.helm-postgresql.outputs.releaseName }}.default/postgres")
       - name: Add WyriHaximusNet repo
         run: helm repo add WyriHaximusNet https://helm.wyrihaximus.net/
       - name: Install Chart Tester
