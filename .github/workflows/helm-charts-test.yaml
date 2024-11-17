@@ -49,13 +49,30 @@ jobs:
           node_image: "kindest/node:v${{ matrix.k8s }}.0"
           config: etc/kind.yaml
       - run: kubectl get nodes
+      - run: kubectl get pods -A
+      - run: kubectl get svc -A
+      - name: Install PiHole
+        uses: evryfs/helm-ephemeral-action@v0.2.5
+        with:
+          repo: https://mojo2600.github.io/pihole-kubernetes/
+          chart: pihole
+          helm: 'helm' # optional, default value is 'helm'
+          args: '--wait --atomic --timeout 13m' #optional, default value is '--wait --timeout 2m' in order to wait for the chart-install to stabilize into ready state
+      - run: kubectl get pods -A
+      - run: kubectl get svc -A
+      - name: Create postgresql URL
+        id: pihole
+        run: |
+          echo ::set-output name=hostname::$(echo "pihole-helm-charts-${{ github.run_number }}-web.default" | base64)
       - name: Install postgresql
         uses: evryfs/helm-ephemeral-action@v0.2.5
         with:
           repo: https://charts.bitnami.com/bitnami
           chart: postgresql
           helm: 'helm' # optional, default value is 'helm'
-          args: '--wait --timeout 13m' #optional, default value is '--wait --timeout 2m' in order to wait for the chart-install to stabilize into ready state
+          args: '--wait --atomic --timeout 13m' #optional, default value is '--wait --timeout 2m' in order to wait for the chart-install to stabilize into ready state
+      - run: kubectl get pods -A
+      - run: kubectl get svc -A
       - name: Get PG password
         id: postgresql_password
         run: |
@@ -77,6 +94,7 @@ jobs:
           fi
       - name: Prepare library charts
         run: |
+          echo -e "  PIHOLE_HOSTNAME: \"${{ steps.pihole.outputs.hostname }}\"\r\n" >> charts/pi-hole-exporter/library-ci/secret.yaml
           cp charts/commons/library-ci/*.yaml charts/commons/templates/
           cp charts/cron-jobs/library-ci/*.yaml charts/cron-jobs/templates/
           cp charts/horizontal-pod-autoscalers/library-ci/*.yaml charts/horizontal-pod-autoscalers/templates/
@@ -90,9 +108,13 @@ jobs:
           sed -i 's/library/application/g' charts/horizontal-pod-autoscalers/Chart.yaml
           rm -Rf charts/commento
           rm -Rf charts/commentoplusplus
+      - run: kubectl get pods -A
+      - run: kubectl get svc -A
       - name: Test Changed Charts
         if: steps.list-changed.outputs.changed == 'true'
         run: ct install
       - name: Test All Charts
         if: steps.list-changed.outputs.changed != 'true'
         run: ct install --all
+      - run: kubectl get pods -A
+      - run: kubectl get svc -A
