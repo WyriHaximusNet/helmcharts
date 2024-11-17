@@ -45,10 +45,9 @@ jobs:
       - name: Create kind cluster
         uses: helm/kind-action@v1.10.0
         with:
-          installLocalPathProvisioner: true # Only build a kind cluster if there are chart changes to test.
           node_image: "kindest/node:v${{ matrix.k8s }}.0"
           config: etc/kind.yaml
-      - run: kubectl get nodes
+      - run: kubectl get nodes --show-labels=true
       - run: kubectl get pods -A
       - run: kubectl get svc -A
       - name: Install PiHole
