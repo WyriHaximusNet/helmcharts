@@ -4,5 +4,9 @@
   "labels": [ "Dependencies 📦"],
   "recreateClosed": true,
   "allowScripts": true,
-  "allowPlugins": true
+  "allowPlugins": true,
+  "ignorePaths": [
+    "charts/commento/**",
+    "charts/commentoplusplus/**"
+  ]
 }
