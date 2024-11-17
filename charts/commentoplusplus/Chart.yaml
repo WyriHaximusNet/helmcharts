@@ -5,10 +5,8 @@ home: https://github.com/souramoo/commentoplusplus/
 icon: https://cdn.commento.io/images/logo.svg
 name: commentoplusplus
 version: 0.4.0
+deprecated: true
 kubeVersion: ^1.23
-maintainers:
-  - name: WyriHaximus
-    email: helm@wyrihaximus.net
 dependencies:
   - name: commons
     version: ^0.1
