@@ -1,0 +1,88 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "properties": {
+        "cron": {
+            "properties": {
+                "replaceOldestPodHourly": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "hpa": {
+            "properties": {
+                "enable": {
+                    "type": "boolean"
+                },
+                "maxReplicas": {
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "image": {
+            "properties": {
+                "pullPolicy": {
+                    "type": "string"
+                },
+                "repository": {
+                    "type": "string"
+                },
+                "tag": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ingress": {
+            "properties": {
+                "annotations": {
+                    "properties": {
+                        "kubernetes.io/ingress.class": {
+                            "type": "string"
+                        },
+                        "kubernetes.io/tls-acme": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "hosts": {
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "replicas": {
+            "type": "integer"
+        },
+        "resources": {
+            "properties": {
+                "limits": {
+                    "properties": {
+                        "cpu": {
+                            "type": "string"
+                        },
+                        "memory": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "requests": {
+                    "properties": {
+                        "cpu": {
+                            "type": "string"
+                        },
+                        "memory": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "type": "object"
+}

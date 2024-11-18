@@ -1,0 +1,109 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "properties": {
+        "jobs": {
+            "items": {
+                "properties": {
+                    "container": {
+                        "properties": {
+                            "args": {
+                                "items": {
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            },
+                            "command": {
+                                "items": {
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            },
+                            "resources": {
+                                "properties": {
+                                    "limits": {
+                                        "properties": {
+                                            "cpu": {
+                                                "type": "string"
+                                            },
+                                            "memory": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "requests": {
+                                        "properties": {
+                                            "cpu": {
+                                                "type": "string"
+                                            },
+                                            "memory": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "image": {
+                        "properties": {
+                            "pullPolicy": {
+                                "type": "string"
+                            },
+                            "repository": {
+                                "type": "string"
+                            },
+                            "tag": {
+                                "type": "number"
+                            }
+                        },
+                        "required": [
+                            "repository",
+                            "tag",
+                            "pullPolicy"
+                        ],
+                        "type": "object"
+                    },
+                    "labels": {
+                        "properties": {
+                            "cronjob": {
+                                "properties": {
+                                    "key": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "jobTemplate": {
+                                "properties": {
+                                    "key": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "schedule": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "schedule",
+                    "container"
+                ],
+                "type": "object"
+            },
+            "type": "array"
+        }
+    },
+    "type": "object"
+}
