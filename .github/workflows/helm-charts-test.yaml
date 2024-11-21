@@ -60,28 +60,10 @@ jobs:
           args: '--wait --atomic --timeout 13m' #optional, default value is '--wait --timeout 2m' in order to wait for the chart-install to stabilize into ready state
       - run: kubectl get pods -A
       - run: kubectl get svc -A
-      - name: Create postgresql URL
+      - name: Create PiHole HostName
         id: pihole
         run: |
           echo ::set-output name=hostname::$(echo "${{ steps.helm-pihole.outputs.releaseName }}-web.default" | base64)
-      - name: Install postgresql
-        uses: evryfs/helm-ephemeral-action@v0.2.5
-        id: helm-postgresql
-        with:
-          repo: https://charts.bitnami.com/bitnami
-          chart: postgresql
-          helm: 'helm' # optional, default value is 'helm'
-          args: '--wait --atomic --timeout 13m' #optional, default value is '--wait --timeout 2m' in order to wait for the chart-install to stabilize into ready state
-      - run: kubectl get pods -A
-      - run: kubectl get svc -A
-      - name: Get PG password
-        id: postgresql_password
-        run: |
-          echo ::set-output name=password::$(echo "$(kubectl get secret --namespace default postgresql-helm-charts-${{ github.run_number }} -o jsonpath="{.data.postgresql-password}" | base64 --decode)")
-      - name: Create postgresql URL
-        id: postgresql
-        run: |
-          echo ::set-output name=url::$(echo "postgresql://postgres:${{ steps.postgresql_password.outputs.password }}@${{ steps.helm-postgresql.outputs.releaseName }}.default/postgres")
       - name: Add WyriHaximusNet repo
         run: helm repo add WyriHaximusNet https://helm.wyrihaximus.net/
       - name: Install Chart Tester
@@ -100,10 +82,6 @@ jobs:
           cp charts/cron-jobs/library-ci/*.yaml charts/cron-jobs/templates/
           cp charts/horizontal-pod-autoscalers/library-ci/*.yaml charts/horizontal-pod-autoscalers/templates/
           cp charts/pi-hole-exporter/library-ci/*.yaml charts/pi-hole-exporter/templates/
-          sed -i '$ d' charts/commento/ci/postgresql-values.yaml
-          echo -e "  manual: \"${{ steps.postgresql.outputs.url }}\"\r\n" >> charts/commento/ci/postgresql-values.yaml
-          sed -i '$ d' charts/commentoplusplus/ci/postgresql-values.yaml
-          echo -e "  manual: \"${{ steps.postgresql.outputs.url }}\"\r\n" >> charts/commentoplusplus/ci/postgresql-values.yaml
           sed -i 's/library/application/g' charts/commons/Chart.yaml
           sed -i 's/library/application/g' charts/cron-jobs/Chart.yaml
           sed -i 's/library/application/g' charts/horizontal-pod-autoscalers/Chart.yaml
