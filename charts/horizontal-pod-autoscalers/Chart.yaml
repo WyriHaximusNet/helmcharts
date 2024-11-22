@@ -6,6 +6,4 @@ icon: https://helm.wyrihaximus.net/images/charts/horizontal-pod-autoscalers.png
 type: library
 version: 1.0.0
 kubeVersion: ^1.23
-maintainers:
-  - name: WyriHaximus
-    email: helm@wyrihaximus.net
+deprecated: true
