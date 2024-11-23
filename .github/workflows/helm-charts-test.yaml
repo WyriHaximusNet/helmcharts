@@ -18,10 +18,33 @@ jobs:
       - name: Lint charts
         id: lint
         run: ct lint --all
-
+#  collect-values-files-to-validate:
+#    runs-on: ubuntu-latest
+#    name: Validate values schema json
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v4
+#      - name: Validate values schema json
+#        uses: losisin/helm-values-schema-json-action@v1
+#        with:
+#          input: values.yaml
+#          fail-on-diff: true
+#  validate-values-schema:
+#    runs-on: ubuntu-latest
+#    name: Validate values schema json
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v4
+#      - name: Validate values schema json
+#        uses: losisin/helm-values-schema-json-action@v1
+#        with:
+#          input: values.yaml
+#          fail-on-diff: true
   test:
     runs-on: ubuntu-latest
-    needs: lint
+    needs:
+      - lint
+#      - validate-values-schema
     strategy:
       fail-fast: false
       matrix:

@@ -1,0 +1,159 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "properties": {
+        "cron": {
+            "properties": {
+                "replaceOldestPodWeekly": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "grafana": {
+            "properties": {
+                "influxdb": {
+                    "type": "boolean"
+                },
+                "prometheus": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "hpa": {
+            "properties": {
+                "enable": {
+                    "type": "boolean"
+                },
+                "maxReplicas": {
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "image": {
+            "properties": {
+                "pullPolicy": {
+                    "type": "string"
+                },
+                "repository": {
+                    "type": "string"
+                },
+                "tag": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ingress": {
+            "properties": {
+                "annotations": {
+                    "properties": {
+                        "kubernetes.io/ingress.class": {
+                            "type": "string"
+                        },
+                        "kubernetes.io/tls-acme": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "labels": {
+            "properties": {
+                "language": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "podSecurityContext": {
+            "properties": {},
+            "type": "object"
+        },
+        "redirect": {
+            "properties": {
+                "buildin": {
+                    "type": "string"
+                },
+                "defaultFallbackTarget": {
+                    "type": "string"
+                },
+                "enforceHttps": {
+                    "type": "boolean"
+                },
+                "hosts": {
+                    "properties": {
+                        "www.ceesjankiewiet.nl": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "ingressHosts": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "replicas": {
+            "type": "integer"
+        },
+        "resources": {
+            "properties": {
+                "limits": {
+                    "properties": {
+                        "cpu": {
+                            "type": "string"
+                        },
+                        "memory": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "requests": {
+                    "properties": {
+                        "cpu": {
+                            "type": "string"
+                        },
+                        "memory": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "securityContext": {
+            "properties": {},
+            "type": "object"
+        },
+        "service": {
+            "properties": {
+                "type": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "serviceAccount": {
+            "properties": {
+                "create": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "null"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "type": "object"
+}

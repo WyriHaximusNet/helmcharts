@@ -1,0 +1,31 @@
+# List of cronjobs to create
+jobs: []
+#  # Cronjob's name
+#  - name: sleep  # @schema required:true
+#    # Cronjob's schedule following [https://crontab.guru/](crontab syntax)
+#    schedule: "* * * * *"  # @schema required:true
+#    # Any labels to apply to the created cronjob
+#    labels:
+#      cronjob:
+#        key: value
+#      jobTemplate:
+#        key: value
+#    # Anything to apply to the container spec
+#    container:  # @schema required:true
+#      command: ["sleep"]
+#      args: ["1"]
+#      resources:
+#        limits:
+#          cpu: 1m
+#          memory: 12Mi
+#        requests:
+#          cpu: 1m
+#          memory: 12Mi
+#    # Image configuration
+#    image:
+#      # Image repository
+#      repository: alpine  # @schema required:true
+#      # The image tag to use
+#      tag: 3.12  # @schema required:true
+#      # The pod's image pull policy
+#      pullPolicy: IfNotPresent  # @schema required:true
