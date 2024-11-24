@@ -18,33 +18,42 @@ jobs:
       - name: Lint charts
         id: lint
         run: ct lint --all
-#  collect-values-files-to-validate:
-#    runs-on: ubuntu-latest
-#    name: Validate values schema json
-#    steps:
-#      - name: Checkout
-#        uses: actions/checkout@v4
-#      - name: Validate values schema json
-#        uses: losisin/helm-values-schema-json-action@v1
-#        with:
-#          input: values.yaml
-#          fail-on-diff: true
-#  validate-values-schema:
-#    runs-on: ubuntu-latest
-#    name: Validate values schema json
-#    steps:
-#      - name: Checkout
-#        uses: actions/checkout@v4
-#      - name: Validate values schema json
-#        uses: losisin/helm-values-schema-json-action@v1
-#        with:
-#          input: values.yaml
-#          fail-on-diff: true
+  validate-values-schema:
+    runs-on: ubuntu-latest
+    name: Validate values schema json
+    strategy:
+      matrix:
+        chart:
+          - cron-jobs
+          - default-backend
+          - docker-hub-exporter
+          - pi-hole-exporter
+          - redirect
+          - redis-db-assignment-operator
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            charts/${{ matrix.chart }}/
+      - name: Get values files
+        uses: tj-actions/glob@v22
+        id: valueFiles
+        with:
+          separator: ","
+          files: |
+            charts/${{ matrix.chart }}/**/*values.yaml
+      - name: Validate values schema json
+        uses: losisin/helm-values-schema-json-action@v1
+        with:
+          input: ${{ steps.valueFiles.outputs.paths }}
+          output: charts/${{ matrix.chart }}/values.schema.json
+          fail-on-diff: true
   test:
     runs-on: ubuntu-latest
     needs:
       - lint
-#      - validate-values-schema
+      - validate-values-schema
     strategy:
       fail-fast: false
       matrix:
