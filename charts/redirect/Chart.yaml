@@ -10,6 +10,7 @@ appVersion: random
 maintainers:
   - name: WyriHaximus
     email: helm@wyrihaximus.net
+    url: https://wyrihaximus.net
 dependencies:
   - name: commons
     version: ^0.1

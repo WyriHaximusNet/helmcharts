@@ -9,3 +9,4 @@ kubeVersion: ">= 1.21"
 maintainers:
   - name: WyriHaximus
     email: helm@wyrihaximus.net
+    url: https://wyrihaximus.net

@@ -36,6 +36,33 @@ jobs:
           echo ${{ steps.deprecated.outputs.charts }}
           echo "Maintained:"
           echo ${{ steps.maintained.outputs.charts }}
+  ensure-readme-is-up-to-date:
+    name: Ensure ${{ matrix.chart }} README is up to date
+    needs:
+      - generate-charts
+    strategy:
+      fail-fast: false
+      matrix:
+        chart: ${{ fromJson(needs.generate-charts.outputs.maintained) }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Move current README
+        run: |
+          mv charts/${{ matrix.chart }}/README.md charts/${{ matrix.chart }}/README.current.md
+      - name: Generate README.md
+        run: |
+          make generate
+      - name: Check that the files are the exact same
+        uses: LouisBrunner/diff-action@v2.0.0
+        with:
+          old: charts/${{ matrix.chart }}/README.current.md
+          new: charts/${{ matrix.chart }}/README.md
+          mode: strict
+          tolerance: same
+          token: ${{ secrets.GITHUB_TOKEN }}
+          notify_check: true
+          notify_issue: true
   validate-values-schema:
     runs-on: ubuntu-latest
     name: Validate values schema json
