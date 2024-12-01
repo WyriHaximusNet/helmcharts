@@ -1,5 +1,7 @@
 # Commento
 
+> **:exclamation: This Helm Chart is deprecated!**
+
 <p align="center">
   <img width="200" height="200" src="https://cdn.commento.io/images/logo.svg">
 </p>

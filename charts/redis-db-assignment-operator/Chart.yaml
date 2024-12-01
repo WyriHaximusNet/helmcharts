@@ -6,9 +6,11 @@ icon: https://helm.wyrihaximus.net/images/charts/redis-db-assignment-operator.pn
 type: application
 version: 1.0.6
 appVersion: v1.0.1
+kubeVersion: ^1.23
 maintainers:
   - name: WyriHaximus
     email: helm@wyrihaximus.net
+    url: https://wyrihaximus.net
 dependencies:
   - name: commons
     version: ^0.1

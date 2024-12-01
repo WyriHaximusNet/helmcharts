@@ -1,5 +1,7 @@
 # Horizontal Pod Autoscalers
 
+> **:exclamation: This Helm Chart is deprecated!**
+
 <p align="center">
   <img src="https://helm.wyrihaximus.net/images/charts/horizontal-pod-autoscalers.png">
 </p>
