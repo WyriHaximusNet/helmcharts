@@ -20,4 +20,4 @@ Opinionated helm chats for my personal projects, and OSS Projects that either do
 ## Opinionated decisions shared by all charts
 
 * All have pod anti-affinity to be not be on the same node
-* All deployments have a pod disruption budget that only allows one unavailble pod when there are more then one replicas
+* All deployments have a pod disruption budget that only allows one unavailable pod when there are more then one replicas
